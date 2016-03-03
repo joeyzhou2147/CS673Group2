@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="mb20">
                         <h2 class="title" data-animate="fadeInUp">Project Management Tool</h2>
 
-                        <p class="lead" data-animate="fadeInUp">The Tool has a Project Management, Bug Tracking and Communication feature</p>
+                        <p class="lead" data-animate="fadeInUp">The Tool has a Project Management, Bug Tracking and Communication Tool</p>
                     </div>
 
                 
