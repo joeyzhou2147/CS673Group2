@@ -242,7 +242,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-md-4">
 							 <div class="reference-item" data-category="other">
                             <div class="reference">
-                                <a href="#">
+                                <a href="/index.php/welcome/story">
                                     <img src="/assets/images/portfolio-6.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
