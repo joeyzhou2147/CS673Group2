@@ -21,28 +21,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap and Font Awesome css -->
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/stylesheets/font-awesome.css" rel="stylesheet">
+    <link href="/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme stylesheet -->
-    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="/assets/stylesheets/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- Custom stylesheet - for your changes -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="/assets/stylesheets/custom.css" rel="stylesheet">
 
     <!-- owl carousel css -->
 
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="/assets/stylesheets/owl.carousel.css" rel="stylesheet">
+    <link href="/assets/stylesheets/owl.theme.css" rel="stylesheet">
 
     <!-- CSS Animations -->
-    <link href="css/animate.css" rel="stylesheet">
+    <link href="/assets/stylesheets/animate.css" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.png">
 
     <!-- Mordernizr -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="/assets/javascripts/modernizr-2.6.2.min.js"></script>
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="reference-item" data-category="webdesign">
 									<div class="reference">
 										<a href="#">
-											<img src="img/project.jpg" class="img-responsive" alt="" />
+											<img src="/assets/images/project.jpg" class="img-responsive" alt="" />
 
 											<div class="overlay">
 												<h3 class="reference-title">Project name</h3> 
@@ -115,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="reference-item" data-category="seo">
 								<div class="reference">
 									<a href="#">
-										<img src="img/portfolio-2.jpg" class="img-responsive" alt="" />
+										<img src="/assets/images/portfolio-2.jpg" class="img-responsive" alt="" />
 
 										<div class="overlay">
 											<h3 class="reference-title">Project name</h3> 
@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="img/portfolio-3.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-3.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
@@ -180,7 +180,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="img/portfolio-4.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-4.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
@@ -210,7 +210,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					      <div class="reference-item" data-category="webdesign">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="img/portfolio-5.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-5.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
@@ -243,7 +243,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							 <div class="reference-item" data-category="other">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="img/portfolio-6.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-6.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
