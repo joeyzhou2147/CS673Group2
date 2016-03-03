@@ -37,6 +37,10 @@ class Welcome extends CI_Controller {
     {
         $this->load->view('home');
     }
+    public function story()
+    {
+        $this->load->view('story/story');
+    }
 }
 
 /* End of file welcome.php */
