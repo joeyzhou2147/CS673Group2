@@ -88,8 +88,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<img src="/assets/images/project.jpg" class="img-responsive" alt="" />
 
 											<div class="overlay">
-												<h3 class="reference-title">Project name</h3> 
-												<p>Short project description goes here...</p>
+												<h3 class="reference-title">Project Tracking</h3> 
+												<p>This module manages and tracks Projects</p>
 											</div>
 										</a>
 
