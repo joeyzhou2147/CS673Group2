@@ -52,9 +52,9 @@ class PivotalTrackerAPI
     
     public function tokens_active( $username, $password ){
         
-        $auth = ['username' => $username
-                ,'password' => $password];
-        
+        $auth = array('username' => $username
+                ,'password' => $password);
+
         $function = 'tokens/active';
         $token_arr = $this->_execute($function, null, 'GET', $auth);
         
