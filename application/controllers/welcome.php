@@ -39,10 +39,11 @@ class Welcome extends CI_Controller {
     }
     public function story()
     {
-        $this->load->model('PivotalClassAPI');
+        echo "helloworld";
+        //$this->load->model('PivotalClassAPI');
         // Include the file that defines the class
         //require 'pivotal.php';
-        require 'PivotalClassAPI.php';
+        require '/application/models/PivotalClassAPI.php';
         // Create an instance of the class
         //	$pivotal = new pivotal;
         $pivotal = new PivotalTrackerAPI;
@@ -56,22 +57,22 @@ class Welcome extends CI_Controller {
         // Display some details
         //echo $story->name;
         $tok = $pivotal->authenticate();
-        echo "\n";
+        echo "/n<br/>";
         echo $tok;
         //  $xml = $pivotal->projects_get();
         $xml = $pivotal->projects_get('1522017');
-        echo "\n";
+        echo "/n<br/>";
         echo "after get";
-        echo "\n";
+        echo "/n<br/>";
 
         //print_r($xml);
 
 
         $activity = $pivotal-> stories_get( '1522017');
 
-        echo "\n";
+        echo "/n<br/>";
         echo "after activity  get";
-        echo "\n";
+        echo "/n<br/>";
 
         //  print_r($activity);
 
