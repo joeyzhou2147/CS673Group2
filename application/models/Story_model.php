@@ -6,7 +6,7 @@
  * Time: 18:37
  */
 
-class PivotalTrackerAPI
+class Story_model
 {
     public function __construct()
     {
