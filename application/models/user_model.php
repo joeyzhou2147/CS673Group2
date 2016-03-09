@@ -6,43 +6,23 @@
  * Time: 18:37
  */
 
-class PivotalTrackerAPI
+class User_model
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function getStory(){
-        require 'PivotalClassAPI.php';
-        // Create an instance of the class
-        //	$pivotal = new pivotal;
-        $pivotal = new PivotalTrackerAPI;
+    public function activeGetUser(){
+        $result = array();
+        $this->db->select('user_id, username, password')->from('user');
+        $query = $this->db->get();
 
-        // Set our API token and project number
-        $pivotal->token = '1cee9562e50dcbbb9800128a7d911b4c';
-        $pivotal->project = '1522017';   // project id
-
-        // Get an existing story
-        //	$story = $pivotal->getStory('112739899');// story id
-        // Display some details
-        //echo $story->name;
-        $tok = $pivotal->authenticate();
-        echo "\n";
-        echo $tok;
-        //  $xml = $pivotal->projects_get();
-        $xml = $pivotal->projects_get('1522017');
-        echo "\n";
-        echo "after get";
-        echo "\n";
-
-        //print_r($xml);
-
-
-        $activity = $pivotal-> stories_get( '1522017');
-
-        echo "\n";
-        echo "after activity  get";
-        echo "\n";
+        // the query cannot be returned directly
+        // change the query data to array of string
+        if($query->num_rows() > 0){
+            $result = $query->result_array();
+        }
+        return $result;
     }
 }
