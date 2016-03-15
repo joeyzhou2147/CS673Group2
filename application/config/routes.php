@@ -37,6 +37,26 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+/*
+ * These are the example of route setting.
+ */
+
+//$route['default_controller'] 	= 'home';
+//$route['404_override'] 			= '';
+//$route['hunter'] = "hunter/hunter/index";
+//$route['hunter/gallery'] = "hunter/hunter/gallery";
+//$route['hunter/profile-edit'] = "hunter/hunter/profile_edit";
+//
+//$route['hunter/notifications/(:num)'] = "hunter/hunter/notifications/$1";
+//$route['hunter/replay_notification'] = "hunter/hunter/replay_notification";
+//$route['hunter/profile'] = "hunter/hunter/profile";
+//
+//
+//$route['owner/gallery'] = "owner/owner/gallery";
+//$route['owner/notifications/(:num)'] = "owner/owner/notifications/$1";
+//$route['owner/replay_notification'] = "owner/hunter/replay_notification";
+//$route['owner/profile'] = "owner/owner/profile";
+//$route['owner/profile-edit'] = "owner/owner/profile_edit";
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
