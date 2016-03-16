@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="section-out">
         <section class="login-section">
             <div class="login">
-                <form action="">
+                <form action="/sin">
                     <ul class="ul-list">
                         <li><input type="email" required class="input" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
                         <li><input type="password" required class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
