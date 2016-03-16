@@ -25,11 +25,10 @@ class Sign_in extends CI_Controller {
      */
     public function index()
     {
-        $userInfo = $this->User_model->activeGetUser();
-        if(!($userInfo)){
-            $data['info'] = 'We\'re sorry, we could not find the user';
-        }
+        $data = "";
+        $this->load->view('layout/sign_in_header',$data);
         $this->load->view('sign_in',$data);
+        $this->load->view('layout/sign_in_footer',$data);
     }
 
 
