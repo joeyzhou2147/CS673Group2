@@ -6,7 +6,7 @@
  * Time: 18:37
  */
 
-class User_model
+class User_model extends CI_Model
 {
     public function __construct()
     {
@@ -32,7 +32,7 @@ class User_model
             'register_date' => date("Y-m-d H:i:s"),
         );
 
-        if ($this->db->insert('users', $dataArray)) {
+        if ($this->db->insert('user', $dataArray)) {
             return array(
                 'user_id' => $this->getIdByEmail($email),
                 'salt' => $salt);
@@ -43,7 +43,7 @@ class User_model
 
     public function getCountsByRowNum()
     {
-        $query = $this->db->query('SELECT user_name FROM users');
+        $query = $this->db->query('SELECT user_name FROM user');
         $Counts = $query->num_rows();
         return $Counts;
     }
@@ -53,7 +53,7 @@ class User_model
      * */
     public function getUserNameById($id)
     {
-        $sql = 'SELECT user_name FROM users where user_id = ?';
+        $sql = 'SELECT user_name FROM user where user_id = ?';
         $query = $this->db->query($sql, array($id));
         $row = $query->row();
         return $row->user_name;
@@ -62,7 +62,7 @@ class User_model
 
     public function getIdByEmail($email)
     {
-        $sql = 'SELECT user_id FROM users where email = ?';
+        $sql = 'SELECT user_id FROM user where email = ?';
         $query = $this->db->query($sql, array($email));
         $idArray = $query->row_array();
         return $idArray['user_id'];
@@ -70,7 +70,7 @@ class User_model
 
     public function validUqEmailByString($email)
     {
-        $sql = 'SELECT email FROM users where email = ?';
+        $sql = 'SELECT email FROM user where email = ?';
         $query = $this->db->query($sql, array($email));
         $rowNum = $query->num_rows();
         return ($rowNum < 1 ? true : false);
@@ -78,7 +78,7 @@ class User_model
 
     public function validLoginByEmail($email)
     {
-        $sql = 'SELECT email FROM users where email = ?';
+        $sql = 'SELECT email FROM user where email = ?';
         $query = $this->db->query($sql, array($email));
         $rowNum = $query->num_rows();
         return $rowNum > 0;
@@ -86,10 +86,10 @@ class User_model
 
     public function validLoginPwByEmail($password, $email)
     {
-        $passwordSql = 'SELECT password FROM users where email = ?';
+        $passwordSql = 'SELECT password FROM user where email = ?';
         $passwordQuery = $this->db->query($passwordSql, array($email));
         $password = hash('md5', $password);
-        $saltQuery = $this->db->query('SELECT salt FROM users where email = ?', array($email));
+        $saltQuery = $this->db->query('SELECT salt FROM user where email = ?', array($email));
         $saltArray = $saltQuery->row_array();
         $salt = $saltArray['salt'];
         $generatePassword = hash('md5', $password . $salt);
@@ -126,7 +126,7 @@ class User_model
                 'last_login' => date("Y-m-d H:i:s")
             );
             $this->db->where('email', $email);
-            $this->db->update('users', $data);
+            $this->db->update('user', $data);
             return $this->db->affected_rows() > 0;
         }
         return false;
