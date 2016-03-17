@@ -40,6 +40,12 @@ class Sign extends CI_Controller {
     }
 
 
+    public function sign()
+    {
+        $this->load->view('errors/error_exception');
+    }
+
+
 
     /* 1 - User Sign_up Login
     ---------------------------------------------------------------------- */
@@ -70,8 +76,9 @@ class Sign extends CI_Controller {
             $data['redirect'] = 0;
         }
 
-        $this->load->view('sign_up', $data);
-
+        $this->load->view('layout/sign_in_header',$data);
+        $this->load->view('sign_in',$data);
+        $this->load->view('layout/sign_in_footer',$data);
     }
 
     function login()

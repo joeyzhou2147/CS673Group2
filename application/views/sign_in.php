@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="section-out">
         <section class="login-section">
             <div class="login">
-                <form action="/sin">
+                <form action="/cs673group2/index.php/sign/login" method="post">
                     <ul class="ul-list">
                         <li><input type="email" required class="input" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
                         <li><input type="password" required class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-                        <li><span class="remember"><input type="checkbox" id="check"> <label for="check">Remember Me</label></span><span class="remember"><a href="">Forget Password</a></span></li>
+                        <li><span class="remember"><input type="checkbox" id="log_in_check"> <label for="check">Remember Me</label></span><span class="remember"><a href="">Forget Password</a></span></li>
                         <li><input type="submit" value="SIGN IN" class="btn"></li>
                     </ul>
                 </form>
@@ -42,12 +42,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <section class="signup-section">
             <div class="login">
-                <form action="">
+                <form action="/cs673group2/index.php/sign/sign_up">
                     <ul class="ul-list">
-                        <li><input type="email" required class="input" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><input type="password" required class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-                        <li><input type="checkbox" id="check1"> <label for="check1">I accept terms and conditions</label></li>
-                        <li><input type="submit" value="SIGN UP" class="btn"></li>
+                        <li><input type="email" required class="input" placeholder="Your Email" name="register_email"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                        <li><input type="password" required class="input" placeholder="Password" name="register_password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+                        <li><input type="checkbox" id="sign_up_check" onclick="EnableSubmit(this)"> <label for="check1">I accept terms and conditions</label></li>
+                        <li><input type="submit" id="sign_up_submit" value="SIGN UP" class="btn" disabled></li>
                     </ul>
                 </form>
             </div>
@@ -58,7 +58,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="" class="gp"><i class="fa fa-google-plus"></i></a>
                 <a href="" class="in"><i class="fa fa-linkedin"></i></a>
             </div>
+
         </section>
     </div>
 
+</div>
+<div>
+    <p align="center" style="color:red;"><?php if(isset($query)){echo $query;}?></p>
 </div>

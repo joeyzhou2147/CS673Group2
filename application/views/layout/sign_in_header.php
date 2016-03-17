@@ -38,8 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         .input:focus:invalid+.icon{border-color:red}
         .input:focus:valid{border-color:green}
         .input:focus:valid+.icon{border-color:green}
-        #check,#check1{top:1px; position:relative}
-        .btn{border:none; outline:none; background:#0099CC; border-bottom:solid 4px #006699; font-family: 'Ropa Sans', sans-serif; margin:0 auto; display:block; height:40px; width:100%; padding:0 10px; border-radius:3px; font-size:16px; color:#FFF}
+        #log_in_check,#sign_up_check{top:1px; position:relative}
+        .btn{cursor:pointer;border:none; outline:none; background:#0099CC; border-bottom:solid 4px #006699; font-family: 'Ropa Sans', sans-serif; margin:0 auto; display:block; height:40px; width:100%; padding:0 10px; border-radius:3px; font-size:16px; color:#FFF}
 
         .social-login{padding:15px 20px; background:#f1f1f1; border-top:solid 2px #e8e8e8; text-align:right}
         .social-login a{display:inline-block; height:35px; text-align:center; line-height:35px; width:35px; margin:0 3px; text-decoration:none; color:#FFFFFF}
@@ -65,5 +65,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             width:100%;
         }
     </style>
+
+    <script type="text/javascript">
+        var xmlhttp;
+
+        EnableSubmit = function(val)
+        {
+            var signUpSubmit = document.getElementById("sign_up_submit");
+
+            if (val.checked == true)
+            {
+                signUpSubmit.disabled = false;
+            }
+            else
+            {
+                signUpSubmit.disabled = true;
+            }
+        }
+
+        function check(url)
+        {
+            xmlhttp=null;
+            if (window.XMLHttpRequest)
+            {// code for Firefox, Mozilla, IE7, etc.
+                xmlhttp=new XMLHttpRequest();
+            }
+            else if (window.ActiveXObject)
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            if (xmlhttp!=null)
+            {
+                xmlhttp.onreadystatechange=state_Change;
+                xmlhttp.open("GET",url,true);
+                xmlhttp.send(null);
+            }
+            else
+            {
+                alert("Your browser does not support XMLHTTP.");
+            }
+        }
+
+        function state_Change()
+        {
+            if (xmlhttp.readyState==4)
+            {// 4 = "loaded"
+                if (xmlhttp.status==200)
+                {// 200 = "OK"
+                    document.getElementById('p1').innerHTML=xmlhttp.getAllResponseHeaders();
+                }
+                else
+                {
+                    alert("Problem retrieving data:" + xmlhttp.statusText);
+                }
+            }
+        }
+    </script>
 </head>
 <body>
