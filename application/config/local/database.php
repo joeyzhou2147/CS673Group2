@@ -55,9 +55,9 @@ $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
 $db['default']['database'] = 'bp';
 // setting of basic information is done
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
+$db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';

@@ -6,50 +6,12 @@
  * Time: 18:37
  */
 
-class User_model extends CI_Model
+class Bug_model extends CI_Model
 {
     public function __construct()
     {
         parent::__construct();
     }
-
-
-    /**
-     * Get user
-     *
-     * @access public
-     * @return object areas
-     */
-    function get()
-    {
-        return $this->db->get('user')->result();
-    }
-
-
-    /**
-     * Get user by user id
-     *
-     * @access public
-     * @param string $user_id
-     * @return object areas
-     */
-    function get_by_user_id($user_id)
-    {
-        return $this->db->get_where('user', array('user_id' => $user_id))->result();
-    }
-
-    /**
-     * Get user by username
-     *
-     * @access public
-     * @param string $username
-     * @return object areas
-     */
-    function get_by_username($username)
-    {
-        return $this->db->get_where('user', array('username' => $username))->result();
-    }
-
 
     public function create($email, $password, $username = '')
     {
