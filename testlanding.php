@@ -82,7 +82,7 @@
 							<div class="col-md-4">
 								<div class="reference-item" data-category="webdesign">
 									<div class="reference">
-										<a href="index.php/story">
+										<a href="#">
 											<img src="assets/images/project.jpg" class="img-responsive" alt="" />
 
 											<div class="overlay">
