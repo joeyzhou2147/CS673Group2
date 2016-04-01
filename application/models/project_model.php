@@ -145,4 +145,11 @@ class Project_model extends CI_Model
         }
         return $result;
     }
+
+    function get_all_project_id()
+    {
+        $sql = 'SELECT project_id FROM project';
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
 }

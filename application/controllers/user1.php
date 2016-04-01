@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Story extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,11 +19,11 @@ class User extends CI_Controller {
 	 */
     public function index()
     {
-        $userInfo = $this->user_model->activeGetUser();
-        if(empty($userInfo)){
-            $data['info'] = 'We\'re sorry, we could not find the user';
-        }
-        $this->load->view('landing',$data);
+        $this->load->model('user_model');
+        $users['departments'] = $this->user_model->get();
+
+        /* $this->load->view('userview1',$users);*/
+        $this->load->view('userview2',$users);
     }
     public function landing()
     {
