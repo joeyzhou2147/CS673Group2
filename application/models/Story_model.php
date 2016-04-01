@@ -6,43 +6,40 @@
  * Time: 18:37
  */
 
-class Story_model
+class Story_model  extends CI_Model
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function getStory(){
-        require 'PivotalClassAPI.php';
-        // Create an instance of the class
-        //	$pivotal = new pivotal;
-        $pivotal = new PivotalTrackerAPI;
-
-        // Set our API token and project number
-        $pivotal->token = '1cee9562e50dcbbb9800128a7d911b4c';
-        $pivotal->project = '1522017';   // project id
-
-        // Get an existing story
-        //	$story = $pivotal->getStory('112739899');// story id
-        // Display some details
-        //echo $story->name;
-        $tok = $pivotal->authenticate();
-        echo "\n";
-        echo $tok;
-        //  $xml = $pivotal->projects_get();
-        $xml = $pivotal->projects_get('1522017');
-        echo "\n";
-        echo "after get";
-        echo "\n";
-
-        //print_r($xml);
+    function get()
+    {
+        return $this->db->get('story')->result();
+    }
 
 
-        $activity = $pivotal-> stories_get( '1522017');
+    /**
+     * Get user by user id
+     *
+     * @access public
+     * @param string $user_id
+     * @return object areas
+     */
+    function get_by_story_id($story_id)
+    {
+        return $this->db->get_where('story', array('story_id' => $story_id))->result();
+    }
 
-        echo "\n";
-        echo "after activity  get";
-        echo "\n";
+    function form_insert($data){
+// Inserting in Table(students) of Database(college)
+        $this->db->insert('story', $data);
+    }
+
+    function get_last_story_id()
+    {
+        $sql = 'SELECT LAST(story_id) as ID ID FROM story';
+        $query = $this->db->query($sql);
+        return $query->result();
     }
 }

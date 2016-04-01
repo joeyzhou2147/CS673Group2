@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -19,32 +21,32 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap and Font Awesome css -->
-    <link href="assets/stylesheets/font-awesome.css" rel="stylesheet">
-    <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/stylesheets/font-awesome.css" rel="stylesheet">
+    <link href="/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme stylesheet -->
-    <link href="assets/stylesheets/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="/assets/stylesheets/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- Custom stylesheet - for your changes -->
-    <link href="assets/stylesheets/custom.css" rel="stylesheet">
+    <link href="/assets/stylesheets/custom.css" rel="stylesheet">
 
     <!-- owl carousel css -->
 
-    <link href="assets/stylesheets/owl.carousel.css" rel="stylesheet">
-    <link href="assets/stylesheets/owl.theme.css" rel="stylesheet">
+    <link href="/assets/stylesheets/owl.carousel.css" rel="stylesheet">
+    <link href="/assets/stylesheets/owl.theme.css" rel="stylesheet">
 
     <!-- CSS Animations -->
-    <link href="assets/stylesheets/animate.css" rel="stylesheet">
+    <link href="/assets/stylesheets/animate.css" rel="stylesheet">
 
     <!-- Favicon -->
-
+    <link rel="shortcut icon" href="favicon.png">
 
     <!-- Mordernizr -->
-    <script src="assets/javascripts/modernizr-2.6.2.min.js"></script>
+    <script src="/assets/javascripts/modernizr-2.6.2.min.js"></script>
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
-    <script src="assets/javascripts/respond.min.js"></script>
+    <script src="js/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#navigation" data-offset="120">
@@ -82,8 +84,8 @@
 							<div class="col-md-4">
 								<div class="reference-item" data-category="webdesign">
 									<div class="reference">
-										<a href="index.php/story">
-											<img src="assets/images/project.jpg" class="img-responsive" alt="" />
+										<a href="#">
+											<img src="/assets/images/project.jpg" class="img-responsive" alt="" />
 
 											<div class="overlay">
 												<h3 class="reference-title">Project Tracking</h3> 
@@ -113,11 +115,11 @@
 							<div class="reference-item" data-category="seo">
 								<div class="reference">
 									<a href="#">
-										<img src="assets/images/communication.jpg" class="img-responsive" alt="" />
+										<img src="/assets/images/portfolio-2.jpg" class="img-responsive" alt="" />
 
 										<div class="overlay">
-											<h3 class="reference-title">Communcation</h3>
-											<p>Communicate between Group members...</p>
+											<h3 class="reference-title">Project name</h3> 
+											<p>Short project description goes here...</p>
 										</div>
 									</a>
 
@@ -143,11 +145,11 @@
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="assets/images/settings.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-3.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
-                                        <h3 class="reference-title">Setup Page</h3>
-                                        <p>Create Users ,Groups and other setup here...</p>
+                                        <h3 class="reference-title">Project name</h3> 
+                                        <p>Short project description goes here...</p>
                                     </div>
                                 </a>
 
@@ -178,11 +180,11 @@
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="assets/images/bugtracker.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-4.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
-                                        <h3 class="reference-title">Bug Tracker Page</h3>
-                                        <p>Capture all defects here and manage...</p>
+                                        <h3 class="reference-title">Project name</h3> 
+                                        <p>Short project description goes here...</p>
                                     </div>
                                 </a>
 
@@ -208,7 +210,7 @@
 					      <div class="reference-item" data-category="webdesign">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="assets/images/portfolio-5.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-5.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
@@ -241,7 +243,7 @@
 							 <div class="reference-item" data-category="other">
                             <div class="reference">
                                 <a href="/index.php/welcome/story">
-                                    <img src="assets/images/portfolio-6.jpg" class="img-responsive" alt="" />
+                                    <img src="/assets/images/portfolio-6.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
