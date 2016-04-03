@@ -49,7 +49,7 @@
        </div>
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">Story create time :</label>
-         <input type="date" name="ctime">
+         <input type="datetime" name="cTime">
        </div>
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Story Description :</label>
@@ -59,7 +59,7 @@
        </div>
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">story update time:</label>
-         <input type="date" name="utime">
+         <input type="datetime" name="uTime">
        </div>
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">story owner:</label>
