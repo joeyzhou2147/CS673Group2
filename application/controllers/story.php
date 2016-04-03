@@ -30,6 +30,7 @@ class Story extends CI_Controller {
         //load the employee model
         $this->load->model('story_model');
         $this->load->model('project_model');
+        $data = array();
     }
     public function index()
     {
@@ -39,11 +40,58 @@ class Story extends CI_Controller {
         /* $this->load->view('userview1',$users);*/
         $this->load->view('userview3',$stories);
 
-      
-
-
     }
+
+    // show the table of add story
+    public function project_mgnt(){
+        $stories = $this->story_model->get();
+        $dataStories = $this->story_model->get_by_story_id(1);
+
+        //get story count
+        $story_count = 0;
+        foreach($dataStories as $row){
+            $story_count ++;
+        }
+        $story_count ++;
+        //echo phpinfo(); dieout();
+        //echo $this->data['stories']->story_id;
+/*        foreach($stories as $story){
+            echo '<br>';
+            echo $story->story_id;
+            echo '</br>';
+        }*/
+
+        // summary of data post to view
+
+        $container  = array();
+        $container['story_count'] = $story_count;
+        $container['dataStories'] = $dataStories;
+        $container['project_ids'] = $this->project_model->get_project_column('project_id');
+
+        $this->load->view('project_mgnt/project_mgnt_add_story',$container);
+    }
+
+    // show the result of add story
     public function add_story()
+    {
+        $stories['storyindex'] = $this->story_model->get();
+
+        // $storyid is from browser, here we set it 1
+        // $id=$this->input->post('storyiid');
+        $id = 1;
+        $idescription=$this->input->post('storydescription');
+
+
+        $data["storyID"]= $id;
+        //Transfering data to Model
+        $this->story_model->form_insert($data);
+        $data['message'] = 'Data Inserted Successfully';
+        //Loading View
+        echo $data['message'];
+        //$this->load->view('insert_view', $data);
+    }
+
+    public function add_story_backup()
     {
         $stories['storyindex'] = $this->story_model->get();
 
