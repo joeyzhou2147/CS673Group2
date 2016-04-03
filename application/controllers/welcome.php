@@ -17,11 +17,44 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-    public function index()
+
+    function __construct()
     {
-      $this->load->view('project_mgnt/top_page.php');
-      $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('landing');
+        parent::__construct();
+        $this->load->model('User_model');
+    }
+
+    // login verified here
+    function index()
+    {
+        $email = $this->input->post('login_email');
+        $password = $this->input->post('login_password');
+        $id = $this->User_model->getIdByEmail($email);
+
+        $container['user_id'] = $id;
+        $container['email'] = $email;
+        $container['password'] = $password;
+        if ($this->User_model->validLoginByEmail($email)) {
+            if ($this->User_model->validLoginPwByEmail($password, $email)) {
+                $this->session->set_userdata('username', $email);
+                //$this->User_model->updateLastLoginTime($email);
+                //
+                $this->load->view('landing', $container);
+            } else {
+                //echo $container['password'];
+                //echo $container['email'];
+                $container['message'] = "login failed, your password is wrong.";
+                $this->load->view('layout/sign_in_header',$container);
+                $this->load->view('sign_in',$container);
+                $this->load->view('layout/sign_in_footer',$container);
+            }
+
+        } else {
+            $container['message'] = "login failed, username doesn't exist.";
+            $this->load->view('layout/sign_in_header',$container);
+            $this->load->view('sign_in',$container);
+            $this->load->view('layout/sign_in_footer',$container);
+        }
     }
     public function landing()
     {

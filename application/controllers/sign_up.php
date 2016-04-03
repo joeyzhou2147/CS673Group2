@@ -6,7 +6,7 @@
  * Time: 18:54
  */
 
-class Sign extends CI_Controller {
+class Sign_up extends CI_Controller {
 
     /**
      * Index Page for this controller.
@@ -33,30 +33,28 @@ class Sign extends CI_Controller {
 
     public function index()
     {
-        $container = array();
-//        $this->load->model('User_model');
-//        $email = $this->input->post('register_email');
-//        $password = $this->input->post('register_password');
-//        if (!is_null($email) && !is_null($password)) {
-//            $container['password'] = $password;
-//            $container['email'] = $email;
-//            if ($this->User_model->validUqEmailByString($email)) {
-//                $container['query'] = $this->User_model->create($email, $password);
-//                $container['user_id'] = $this->User_model->getIdByEmail($email);
-//                $container['redirect'] = 1;
-//                $container['message'] = "Your account is activated. Please login to check! ";
-//            } else {
-//                $container['message'] = 'Email \''.$email.'\' already registered in this site. Please use another email or reset your password.';
-//                $container['redirect'] = 0;
-//            }
-//        } else {
-//            $container['message'] = "Insert failed. Null Parameter.";
-//            $container['redirect'] = 0;
-//        }
+        $this->load->model('User_model');
+        $email = $this->input->post('register_email');
+        $password = $this->input->post('register_password');
+        if (!is_null($email) && !is_null($password)) {
+            $container['password'] = $password;
+            $container['email'] = $email;
+            if ($this->User_model->validUqEmailByString($email)) {
+                $container['query'] = $this->User_model->create($email, $password);
+                $container['user_id'] = $this->User_model->getIdByEmail($email);
+                $container['redirect'] = 1;
+                $container['message'] = "Your account is activated. Please login to check! ";
+            } else {
+                $container['message'] = 'Email \''.$email.'\' already registered in this site. Please use another email or reset your password.';
+                $container['redirect'] = 0;
+            }
+        } else {
+            $container['message'] = "Insert failed. Null Parameter.";
+            $container['redirect'] = 0;
+        }
         $this->load->view('layout/sign_in_header',$container);
         $this->load->view('sign_in',$container);
         $this->load->view('layout/sign_in_footer',$container);
-
     }
 
 
