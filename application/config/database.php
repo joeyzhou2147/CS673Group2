@@ -61,9 +61,7 @@ $db['default']['stricton'] = FALSE;
 
 if(getenv('OPENSHIFT_MYSQL_DB_HOST'))
 {
-    // change value to mysql when upload code to server
 	$db['default']['dbdriver'] = 'mysqli';
-    
 	$db['default']['hostname'] = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$db['default']['port'] = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	$db['default']['username'] = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
