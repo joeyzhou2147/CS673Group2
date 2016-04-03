@@ -58,7 +58,7 @@
 //$route['owner/profile'] = "owner/owner/profile";
 //$route['owner/profile-edit'] = "owner/owner/profile_edit";
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "sign";
 $route['404_override'] = '';
 
 
