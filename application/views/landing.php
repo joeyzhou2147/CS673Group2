@@ -84,7 +84,8 @@
 							<div class="col-md-4">
 								<div class="reference-item" data-category="webdesign">
 									<div class="reference">
-										<a href="index.php/project">
+
+										<a href="<?php echo base_url("index.php/project"); ?>">
 											<img src="<?php echo base_url("assets/images/project.jpg"); ?>" class="img-responsive" alt="" />
 
 											<div class="overlay">
@@ -114,8 +115,8 @@
 						<div class="col-md-4">
 							<div class="reference-item" data-category="seo">
 								<div class="reference">
-									<a href="#">
-										<img src="assets/images/communication.jpg" class="img-responsive" alt="" />
+                                    <a href="<?php echo base_url("index.php/chat"); ?>">
+										<img src="<?php echo base_url("assets/images/communication.jpg"); ?>"  class="img-responsive" alt="" />
 
 										<div class="overlay">
 											<h3 class="reference-title">Communcation</h3>
@@ -145,7 +146,7 @@
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
                                 <a href="<?php echo base_url("index.php/user"); ?>">
-                                    <img src="assets/images/settings.jpg" class="img-responsive" alt="" />
+                                    <img src="<?php echo base_url("assets/images/settings.jpg"); ?>"  class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Setup Page</h3>
@@ -180,7 +181,7 @@
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
                                 <a href="<?php echo base_url("index.php/bug"); ?>">
-                                    <img src="assets/images/bugtracker.jpg" class="img-responsive" alt="" />
+                                    <img src="<?php echo base_url("assets/images/bugtracker.jpg"); ?>"  class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Bug Tracker Page</h3>
@@ -210,8 +211,8 @@
 					      <div class="reference-item" data-category="webdesign">
                             <div class="reference">
                                 <a href="#">
-                                    <img src="assets/images/portfolio-5.jpg" class="img-responsive" alt="" />
 
+                                    <img src="<?php echo base_url("assets/images/portfolio-5.jpg"); ?>"  class="img-responsive" alt="" />
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
                                         <p>Short project description goes here...</p>
@@ -242,8 +243,8 @@
 					<div class="col-md-4">
 							 <div class="reference-item" data-category="other">
                             <div class="reference">
-                                <a href="/index.php/welcome/story">
-                                    <img src="assets/images/portfolio-6.jpg" class="img-responsive" alt="" />
+                                <a href="#">
+                                    <img src="<?php echo base_url("assets/images/portfolio-6.jpg"); ?>"  class="img-responsive" alt="" />
 
                                     <div class="overlay">
                                         <h3 class="reference-title">Project name</h3> 
