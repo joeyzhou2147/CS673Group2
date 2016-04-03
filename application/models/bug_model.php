@@ -41,6 +41,10 @@ class Bug_model extends CI_Model
         }
     }
 
+	 function get()
+    {
+        return $this->db->get('user')->result();
+    }
     public function getCountsByRowNum()
     {
         $query = $this->db->query('SELECT user_name FROM user');

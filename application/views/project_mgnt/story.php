@@ -78,16 +78,13 @@ class Story extends CI_Controller {
         $id=$this->input->post('storyiid');
         $idescription=$this->input->post('storydescription');
 
-
-
-
-
-
-
+       /*
+            //Transfering data to Model
+            $this->insert_model->form_insert($data);
             $data['message'] = 'Data Inserted Successfully';
             //Loading View
-            $this->load->view('insert_view', $data);
-        
+            $this->load->view('insert_view', $data);*/
+
 
     }
     public function landing()

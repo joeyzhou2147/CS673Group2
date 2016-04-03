@@ -13,6 +13,12 @@ class Project_model extends CI_Model
         parent::__construct();
     }
 
+    function get()
+    {
+        return $this->db->get('project')->result();
+    }
+
+
     public function create($email, $password, $username = '')
     {
         $password = hash('md5', $password);

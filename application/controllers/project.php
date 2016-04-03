@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Story extends CI_Controller {
+class Project extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -34,7 +34,7 @@ class Story extends CI_Controller {
     public function index()
     {
 
-        $stories['storyindex'] = $this->story_model->get();
+        $projects['projectindex'] = $this->project_model->get();
 
        // $data['page'] = 'userview3';
      //   $this->load->view('template',$data);
@@ -42,7 +42,7 @@ class Story extends CI_Controller {
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/story_mgnt',$stories);
+        $this->load->view('project_mgnt/project_mgnt',$projects);
 
       
 
@@ -75,19 +75,41 @@ class Story extends CI_Controller {
     {
         $stories['storyindex'] = $this->story_model->get();
 
-        $id=$this->input->post('storyiid');
-        $idescription=$this->input->post('storydescription');
+        $id=$this->input->post('id');
+        $idescription=$this->input->post('description');
 
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
+        //Validating Name Field
+        $this->form_validation->set_rules('dname', 'Username', 'required|min_length[5]|max_length[15]');
 
+        //Validating Email Field
+        $this->form_validation->set_rules('demail', 'Email', 'required|valid_email');
 
+        //Validating Mobile no. Field
+        $this->form_validation->set_rules('dmobile', 'Mobile No.', 'required|regex_match[/^[0-9]{10}$/]');
 
+        //Validating Address Field
+        $this->form_validation->set_rules('daddress', 'Address', 'required|min_length[10]|max_length[50]');
 
-
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('insert_view');
+        } else {
+                    //Setting values for tabel columns
+        /*    $data = array(
+                'Student_Name' => $this->input->post('dname'),
+                'Student_Email' => $this->input->post('demail'),
+                'Student_Mobile' => $this->input->post('dmobile'),
+                'Student_Address' => $this->input->post('daddress'),
+                 'projectids' => $project['projectindex'],
+                'storid' => $storyid,
+            );
+            //Transfering data to Model
+            $this->insert_model->form_insert($data);
             $data['message'] = 'Data Inserted Successfully';
             //Loading View
-            $this->load->view('insert_view', $data);
-        
+            $this->load->view('insert_view', $data);*/
+        }
 
     }
     public function landing()

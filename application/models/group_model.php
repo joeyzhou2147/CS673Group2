@@ -13,6 +13,10 @@ class Group_model extends CI_Model
         parent::__construct();
     }
 
+	 function get()
+    {
+        return $this->db->get('user')->result();
+    }
     public function create($email, $password, $username = '')
     {
         $password = hash('md5', $password);
