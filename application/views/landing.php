@@ -19,14 +19,15 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,100%7CRoboto:400,700,300,100' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap and Font Awesome css -->
-    <link href="assets/stylesheets/font-awesome.css" rel="stylesheet">
-    <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <link href ="<?php echo base_url("assets/stylesheets/font-awesome.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>" rel="stylesheet">
 
     <!-- Theme stylesheet -->
-    <link href="assets/stylesheets/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="<?php echo base_url("assets/stylesheets/style.default.css"); ?>" rel="stylesheet" id="theme-stylesheet">
 
     <!-- Custom stylesheet - for your changes -->
-    <link href="assets/stylesheets/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url("assets/stylesheets/custom.css"); ?>" rel="stylesheet">
 
     <!-- owl carousel css -->
 
@@ -49,13 +50,14 @@
 </head>
 <body data-spy="scroll" data-target="#navigation" data-offset="120">
 
+<div class = "container">
 
       <div class="section" id="references">
             <div class="container">
                 <div class="col-sm-12">
 
                     <div class="mb20">
-                        <h2 class="title" data-animate="fadeInUp">Project Management Tool</h2>
+
 
                         <p class="lead" data-animate="fadeInUp">The Tool has a Project Management, Bug Tracking and Communication Tool</p>
                     </div>
@@ -82,8 +84,8 @@
 							<div class="col-md-4">
 								<div class="reference-item" data-category="webdesign">
 									<div class="reference">
-										<a href="index.php/story">
-											<img src="assets/images/project.jpg" class="img-responsive" alt="" />
+										<a href="index.php/project">
+											<img src="<?php echo base_url("assets/images/project.jpg"); ?>" class="img-responsive" alt="" />
 
 											<div class="overlay">
 												<h3 class="reference-title">Project Tracking</h3> 
@@ -142,7 +144,7 @@
 					<div class="col-md-4">
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
-                                <a href="#">
+                                <a href="<?php echo base_url("index.php/user"); ?>">
                                     <img src="assets/images/settings.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
@@ -177,7 +179,7 @@
 					<div class="col-md-4">
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
-                                <a href="#">
+                                <a href="<?php echo base_url("index.php/bug"); ?>">
                                     <img src="assets/images/bugtracker.jpg" class="img-responsive" alt="" />
 
                                     <div class="overlay">
@@ -276,11 +278,19 @@
             </div>
             <!-- /.container -->
         </div>
+
+</div>
         <!-- /.section -->
 
         <!-- *** REFERENCES END *** -->
 
-        <!-- *-->
+<br />
+<br />
+
+<div id="footer">
+    www.BUPatriots.com
+</div>
+<!-- *-->
         <!-- *** ABOUT END *** -->
 </body>
 

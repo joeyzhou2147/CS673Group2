@@ -22,10 +22,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="section-out">
         <section class="login-section">
             <div class="login">
-                <form action="/cs673group2/index.php/sign/login" method="post">
+                <form action="/cs673group2/index.php/welcome" method="post">
                     <ul class="ul-list">
-                        <li><input type="email" required class="input" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
-                        <li><input type="password" required class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+                        <li><input type="email" required class="input" placeholder="Your Email" name="login_email"/><span class="icon"><i class="fa fa-user"></i></span></li>
+                        <li><input type="password" required class="input" placeholder="Password" name="login_password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
                         <li><span class="remember"><input type="checkbox" id="log_in_check"> <label for="check">Remember Me</label></span><span class="remember"><a href="">Forget Password</a></span></li>
                         <li><input type="submit" value="SIGN IN" class="btn"></li>
                     </ul>
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <section class="signup-section">
             <div class="login">
-                <form action="/cs673group2/index.php/sign/sign_up">
+                <form action="/cs673group2/index.php/sign_up" method="POST">
                     <ul class="ul-list">
                         <li><input type="email" required class="input" placeholder="Your Email" name="register_email"/><span class="icon"><i class="fa fa-user"></i></span></li>
                         <li><input type="password" required class="input" placeholder="Password" name="register_password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
@@ -64,5 +64,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </div>
 <div>
-    <p align="center" style="color:red;"><?php if(isset($query)){echo $query;}?></p>
+    <p align="center" style="color:red;"><?php if(isset($message)){echo $message;}?></p>
 </div>

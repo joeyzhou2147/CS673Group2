@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Story extends CI_Controller {
+class Group extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,13 +28,13 @@ class Story extends CI_Controller {
         // needed when we
         $this->load->library('form_validation');
         //load the employee model
-        $this->load->model('story_model');
-        $this->load->model('project_model');
+
+        $this->load->model('group_model');
     }
     public function index()
     {
 
-        $stories['storyindex'] = $this->story_model->get();
+        $groups['groupindex'] = $this->group_model->get();
 
        // $data['page'] = 'userview3';
      //   $this->load->view('template',$data);
@@ -42,7 +42,7 @@ class Story extends CI_Controller {
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/story_mgnt',$stories);
+        $this->load->view('project_mgnt/group_mgnt',$groups);
 
       
 
