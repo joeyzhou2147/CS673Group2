@@ -43,7 +43,7 @@ class Bug_model extends CI_Model
 
 	 function get()
     {
-        return $this->db->get('user')->result();
+        return $this->db->get('bug')->result();
     }
     public function getCountsByRowNum()
     {

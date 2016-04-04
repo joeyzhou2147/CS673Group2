@@ -36,6 +36,10 @@ class Project_model  extends CI_Model
         $this->db->insert('story', $data);
     }
 
+    function get_project_column($column){
+        $this->db->select($column);
+        return $this->db->get('project')->result();
+    }
     function get_last_story_id()
     {
         $sql = 'SELECT LAST(story_id) as ID ID FROM story';
