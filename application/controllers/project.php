@@ -17,7 +17,7 @@ class Project extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->load->library('session');
@@ -31,7 +31,7 @@ class Project extends CI_Controller {
         $this->load->model('story_model');
         $this->load->model('project_model');
     }
-    public function index()
+    function index()
     {
 
         $projects['projectindex'] = $this->project_model->get();
@@ -43,35 +43,57 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/menu_page.php');
 
         $this->load->view('project_mgnt/project_mgnt',$projects);
+    }
 
-      
-
-
+    function project_mgnt_add(){
+        $container = array();
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/project_mgnt_add', $container);
     }
     
-    public function data_in()
+    function data_in()
+    {
+        $container = array();
+
+        $pName = $this->input->post('addProjectName');
+        $pGroupId = $this->input->post('addProjectGroupId');
+        $pLength = $this->input->post('addProjectLength');
+        $pStartDate = $this->input->post('addProjectStartDate');
+        $pStatus = $this->input->post('addProjectStatus');
+
+        if($this->project_model->addProject($pName, $pGroupId, $pLength,$pStartDate,$pStatus)){
+            $container['message'] = 'You successfully add this project "'.$pName.'"!';
+        }else{
+            $container['message'] = 'Project "'.$pName.'" add failed';
+        }
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/project_mgnt_add', $container);
+    }
+    function data_in_backup()
     {
         //get the last story id
-       // $storyid = $this->story_model->get_last_story_id();
+        // $storyid = $this->story_model->get_last_story_id();
         $data['storyid'] = '3005';
         //get all the project ids
         //$project['projectindex']= $this->project_model->get_all_project_id();
-         $data['projectindex'] = array('5000','5001','50002');
+        $data['projectindex'] = array('5000','5001','50002');
         //getall user names from user table
         $data['owners'] = array('kali','gilbert','terry','han','joe');
         // $data['page'] = 'project_mgnt_add_story';
 
         $data['status']  = array('pending','open','completed');
-         //$this->load->view('template', $data);
+        //$this->load->view('template', $data);
 
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt_add_story', $data);
 
-       // $this->load->view('add_story', $data);
+        // $this->load->view('add_story', $data);
     }
     
-    public function add_story()
+    function add_story()
     {
         $stories['storyindex'] = $this->story_model->get();
 
@@ -112,22 +134,7 @@ class Project extends CI_Controller {
         }
 
     }
-    public function landing()
-    {
-        $this->load->view('landing');
-    }
-    public function welcome_message()
-    {
-        $this->load->view('welcome_message');
-    }
-    public function login()
-    {
-        $this->load->view('login');
-    }
-    public function home()
-    {
-        $this->load->view('home');
-    }
+
 
 }
 

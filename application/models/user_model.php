@@ -54,10 +54,10 @@ class User_model extends CI_Model
     function create($username, $password, $first_name = '')
     {
         // hash once here
-        // $passwordHash = hash('md5', $password);
+        $passwordHash = hash('md5', $password);
         $salt = hash('md5', uniqid());
         // hash twice here
-        //$generatePassword = hash('md5', $passwordHash . $salt);
+        $generatePassword = hash('md5', $passwordHash . $salt);
 
         // hash only once here
         //$generatePassword = hash('md5', $password . $salt);
@@ -71,9 +71,9 @@ class User_model extends CI_Model
             // 'user_id' => $id, // column id is auto incremental
             'first_name' => $first_name,
             'username' => $username,
-            'password' => $password,
+            //'password' => $password,
 
-            //'password' => $generatePassword,
+            'password' => $generatePassword,
             'salt' => $salt,
             'register_date' => date("Y-m-d H:i:s"),
         );
@@ -106,7 +106,7 @@ class User_model extends CI_Model
     }
 
 
-    public function getIdByEmail($email)
+    function getIdByEmail($email)
     {
         $sql = 'SELECT user_id FROM user where username = ?';
         $query = $this->db->query($sql, array($email));
@@ -132,16 +132,20 @@ class User_model extends CI_Model
 
     public function validLoginPwByEmail($password, $email)
     {
+        $saltQuery = $this->db->query('SELECT salt FROM user where username = ?', array($email));
+        $saltArray = $saltQuery->row_array();
+        $salt = $saltArray['salt'];
+
         $passwordQuery = $this->db->query('SELECT password FROM user where username = ?', array($email));
         // hash one more time, if password is not hash
         //$password = hash('md5', $password);
         // hash only once here
-        // $passwordHash = hash('md5', $password);
-        $saltQuery = $this->db->query('SELECT salt FROM user where username = ?', array($email));
-        $saltArray = $saltQuery->row_array();
-        $salt = $saltArray['salt'];
+        $passwordHash = hash('md5', $password);
+        // hash twice here
+        $generatePassword = hash('md5', $passwordHash . $salt);
         // hash only once here
         //$generatePassword = hash('md5', $password . $salt);
+
         //echo $generatePassword.'/////////////';
         //echo hash('md5',hash('md5', $password).$salt).' ///////////// ';
         if ($passwordQuery->num_rows() > 0) {
@@ -150,8 +154,8 @@ class User_model extends CI_Model
             //echo $passwordArray['password'].'/////////////';
             //echo $salt.'/////////////';
             //echo hash('md5',$password.$salt).'/////////////';
-            if ($passwordArray['password'] != $password) return false;
-            //if ($passwordArray['password'] != $generatePassword) return false;
+            //if ($passwordArray['password'] != $password) return false;
+            if ($passwordArray['password'] != $generatePassword) return false;
 
         } else {
             return false;
