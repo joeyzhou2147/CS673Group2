@@ -14,18 +14,18 @@
   </head>
   <body>
 
-  
-  
-  
-  
- 
+
+
+
+
    <div class="container">
      <h2>Add New Story</h2>
-     <form class="form-horizontal" role="form">
+     <form class="form-horizontal" role="form" method="POST" action="index.php/story/add_story">
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Story ID :</label>
          <div class="col-sm-10">
-           <input type="number" class="form-control" id="storyid" value=<?=$storyid; ?>>
+             <?php  echo $story_count;?>
+           <input type="number" class="form-control" id="storyid" value=<?php if(isset($dataStories)){echo $dataStories[0]->story_id;} ?>>
          </div>
        </div>
 	   
@@ -38,9 +38,9 @@
              // A sample product array
 
              // Iterating through the product array
-             foreach($projectindex as $item){
+             foreach($project_ids as $row){
                ?>
-               <option value="<?php echo strtolower($item); ?>"><?php echo $item; ?></option>
+               <option value="<?php echo $row->project_id ?>"><?php echo $row->project_id; ?></option>
                <?php
              }
              ?>
@@ -49,7 +49,7 @@
        </div>
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">Story create time :</label>
-         <input type="datetime" name="cTime">
+         <input type="time" name="ctime" value="">
        </div>
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Story Description :</label>
@@ -59,7 +59,7 @@
        </div>
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">story update time:</label>
-         <input type="datetime" name="uTime">
+         <input type="date" name="utime">
        </div>
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">story owner:</label>
@@ -100,19 +100,6 @@
        </div>
      </form>
    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

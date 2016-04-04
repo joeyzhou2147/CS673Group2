@@ -90,6 +90,35 @@ class Story extends CI_Controller {
         
 
     }
+    public function project_mgnt()
+    {
+        $stories = $this->story_model->get();
+        $dataStories = $this->story_model->get_by_story_id(1);
+
+        //get story count
+        $story_count = 0;
+        foreach($stories as $row){
+            $story_count ++;
+        }
+        $story_count ++;
+        //echo phpinfo(); dieout();
+        //echo $this->data['stories']->story_id;
+        /*        foreach($stories as $story){
+                    echo '<br>';
+                    echo $story->story_id;
+                    echo '</br>';
+                }*/
+
+        // summary of data post to view
+
+        $container  = array();
+        $container['story_count'] = $story_count;
+        $container['dataStories'] = $stories;
+        $container['project_ids'] = $this->project_model->get_project_column('project_id');
+
+        $this->load->view('project_mgnt/project_mgnt_add_story',$container);
+    }
+
     public function landing()
     {
         $this->load->view('landing');
