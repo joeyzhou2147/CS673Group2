@@ -34,23 +34,26 @@ class Welcome extends CI_Controller {
         $container['user_id'] = $id;
         $container['email'] = $email;
         $container['password'] = $password;
-        if ($this->User_model->validLoginByEmail($email)) {
-            if ($this->User_model->validLoginPwByEmail($password, $email)) {
-                $this->session->set_userdata('username', $email);
-                //$this->User_model->updateLastLoginTime($email);
-                //
-                $this->load->view('landing', $container);
-            } else {
-                //echo $container['password'];
-                //echo $container['email'];
-                $container['message'] = "login failed, your password is wrong.";
-                $this->load->view('layout/sign_in_header',$container);
-                $this->load->view('sign_in',$container);
-                $this->load->view('layout/sign_in_footer',$container);
-            }
+        if($this->input->post('login_email')){
+            if ($this->User_model->validLoginByEmail($email)) {
+                if ($this->User_model->validLoginPwByEmail($password, $email)) {
+                    $this->session->set_userdata('username', $email);
+                    //$this->User_model->updateLastLoginTime($email);
+                    //
+                    $this->load->view('landing', $container);
+                } else {
+                    //echo $container['password'];
+                    //echo $container['email'];
+                    $container['message'] = "login failed, your password is wrong.";
+                    $this->load->view('layout/sign_in_header',$container);
+                    $this->load->view('sign_in',$container);
+                    $this->load->view('layout/sign_in_footer',$container);
+                }
 
-        } else {
-            $container['message'] = "login failed, username doesn't exist.";
+            } else {
+                $container['message'] = "login failed, username doesn't exist.";
+            }
+        }else{
             $this->load->view('layout/sign_in_header',$container);
             $this->load->view('sign_in',$container);
             $this->load->view('layout/sign_in_footer',$container);
