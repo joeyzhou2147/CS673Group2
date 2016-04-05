@@ -14,8 +14,8 @@
   <body>
 
   <nav id="nav_hor">
-    <a href="/cs673group2/index.php//welcome/home">Home</a> |
-    <a href="/cs673group2/index.php//project">Project Management</a> |
+    <a href="/cs673group2/index.php/welcome/home">Home</a> |
+    <a href="/cs673group2/index.php/project">Project Management</a> |
     <a href="/cs673group2/index.php/project/project_mgnt_add">Project Add</a> |
     <a href="/cs673group2/index.php/story">Stories</a> |
 	<a href="/cs673group2/index.php/welcome/about">About</a> |
