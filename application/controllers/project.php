@@ -30,6 +30,7 @@ class Project extends CI_Controller {
         //load the employee model
         $this->load->model('story_model');
         $this->load->model('project_model');
+        $this->load->model('group_model');
     }
     function index()
     {
@@ -47,11 +48,12 @@ class Project extends CI_Controller {
     }
 
     function project_mgnt_add(){
-        $container = array();
+        //$container = array();
+        $container['groupIndex']=  $this->group_model->get();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/project_mgnt_add', $container);
-        $this->load->view('project_mgnt/bottom_page.php');
+
     }
     
     function data_in()

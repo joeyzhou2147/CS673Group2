@@ -27,7 +27,17 @@
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Group Id:</label>
          <div class="col-sm-10">
-           <input type="number" class="form-control" id="addProjectGroupId" name="addProjectGroupId" placeholder="Enter Group Id">
+
+             <select class="form-control" id="addProjectGroupId" name="addProjectGroupId" placeholder="addProjectGroupId">
+                 <?php
+                 // Iterating through the product array
+                 foreach($groupIndex as $row){
+                     ?>
+                     <option value="<?php echo $row->group_id ?>"><?php echo $row->group_name; ?></option>
+                     <?php
+                 }
+                 ?>
+             </select>
          </div>
        </div>
 	   
