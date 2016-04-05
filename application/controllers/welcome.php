@@ -60,6 +60,20 @@ class Welcome extends CI_Controller {
     {
         $this->load->view('landing');
     }
+    public function about()
+    {
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/about');
+       
+    }
+    public function contact()
+    {
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/contact');
+
+    }
     public function welcome_message()
     {
         $this->load->view('welcome_message');

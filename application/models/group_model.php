@@ -15,7 +15,7 @@ class Group_model extends CI_Model
 
 	 function get()
     {
-        return $this->db->get('user')->result();
+        return $this->db->get('group')->result();
     }
     public function create($email, $password, $username = '')
     {

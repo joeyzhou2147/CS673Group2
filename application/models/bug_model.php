@@ -52,6 +52,30 @@ class Bug_model extends CI_Model
         return $Counts;
     }
 
+
+    function addProject($bProjectId, $bDescription, $bassignedTo,
+                        $bSeverity,$bStatus,$bDueDate)
+    {
+        $dataArray = array(
+             'project_id' => $bProjectId, // column id is auto incremental
+            'bug_description' => $bDescription,
+            'bug_assigned_to' => $bassignedTo,
+            'bug_severity' => $bSeverity,
+            'bug_status' => $bStatus,
+            'bug_due_date' => $bDueDate,
+
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
+
+        if ($this->db->insert('bug', $dataArray)) {
+//            return array(
+//                'project_id' => $this->getIdByName($pName),
+//                'project_name' => $pName);
+            return true;
+        } else {
+            return false;
+        }
+    }
     /*
      * useless function
      * */

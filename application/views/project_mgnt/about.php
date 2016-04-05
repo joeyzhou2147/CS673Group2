@@ -13,12 +13,9 @@
   </head>
   <body>
 
-  <p>About US</p>
-  <p>About US</p>
-  <p>About US</p>
-  <p>About US</p>
-  <p>About US</p>
-  
+  <p>Project Management Tool</p>
+    <p>This Project Management Tool gives a team the ability to collaborate, organize, and track details.</p>
+
   
   
   

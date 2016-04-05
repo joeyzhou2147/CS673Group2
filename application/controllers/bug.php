@@ -30,6 +30,8 @@ class Bug extends CI_Controller {
         //load the employee model
 
         $this->load->model('bug_model');
+        $this->load->model('project_model');
+
     }
     public function index()
     {
@@ -51,36 +53,34 @@ class Bug extends CI_Controller {
     
     public function data_in()
     {
-        //get the last story id
-       // $storyid = $this->story_model->get_last_story_id();
-        $data['storyid'] = '3005';
-        //get all the project ids
-        //$project['projectindex']= $this->project_model->get_all_project_id();
-         $data['projectindex'] = array('5000','5001','50002');
-        //getall user names from user table
-        $data['owners'] = array('kali','gilbert','terry','han','joe');
-        // $data['page'] = 'project_mgnt_add_story';
 
-        $data['status']  = array('pending','open','completed');
-         //$this->load->view('template', $data);
+        $container = array();
 
-        $this->load->view('project_mgnt/top_page.php');
-        $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('project_mgnt_add_story', $data);
+        $bProjectId = $this->input->post('addBugProjectId');
+        $bDescription = $this->input->post('addBugDescription');
+        $bassignedTo = $this->input->post('addBugOwner');
+        $bSeverity = $this->input->post('addBugSeverity');
+        $bStatus = $this->input->post('addBugStatus');
+        $bDueDate = $this->input->post('addBugDueDate');
 
-       // $this->load->view('add_story', $data);
+        if($this->bug_model->addProject($bProjectId, $bDescription, $bassignedTo,
+            $bSeverity,$bStatus,$bDueDate)){
+            $container['message'] = 'You successfully added this bug ';
+        }else{
+            $container['message'] = 'Bugg  add failed';
+        }
+
+      //  $this->load->view('project_mgnt/bug_mgnt', $container);
+        $this->index();
     }
     
     public function add_bug()
     {
-        $bugs['bugindex'] = $this->bug_model->get();
-
+        $container['projectindex'] = $this->project_model->get();
+       // $container = array();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
-        //Loading View
-        $this->load->view('project_mgnt/bug_tracker_create_bug.php', $bugs);
-
-
+        $this->load->view('project_mgnt/bug_mgnt_add', $container);
     }
     public function landing()
     {

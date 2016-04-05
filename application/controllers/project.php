@@ -43,6 +43,7 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/menu_page.php');
 
         $this->load->view('project_mgnt/project_mgnt',$projects);
+        $this->load->view('project_mgnt/bottom_page.php');
     }
 
     function project_mgnt_add(){
@@ -50,6 +51,7 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/project_mgnt_add', $container);
+        $this->load->view('project_mgnt/bottom_page.php');
     }
     
     function data_in()

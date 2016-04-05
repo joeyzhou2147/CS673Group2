@@ -26,11 +26,16 @@
         <thead>
         <tr>
 
+            <th>bug_id</th>
             <th>project_id</th>
-            <th>bug_title</th>
             <th>bug_description</th>
-            <th>bug_priority</th>
+            <th>bug_assigned_to</th>
+            <th>bug_severity</th>
             <th>bug_status</th>
+            <th>bug_due_date</th>
+            <th>bug_complete_date</th>
+            <th>days_open</th>
+
 
 
 
@@ -42,20 +47,35 @@
         {?>
             <tr>
                 <td>
-                    <?php echo $bugs -> project_id;?>
+                    <?php echo $bugs -> bug_id;?>
                 </td>
                 <td>
-                    <?php echo $bugs->bug_title ;?>
+                    <?php echo $bugs -> project_id;?>
                 </td>
                 <td>
                     <?php echo $bugs -> bug_description;?>
                 </td>
                 <td>
-                    <?php echo $bugs -> bug_priority;?>
+                    <?php echo $bugs->bug_assigned_to;?>
+                </td>
+
+                <td>
+                    <?php echo $bugs -> bug_severity;?>
                 </td>
                 <td>
                     <?php echo $bugs -> bug_status;?>
                 </td>
+                <td>
+                    <?php echo $bugs -> bug_due_date;?>
+                </td>
+
+                <td>
+                    <?php echo $bugs -> bug_complete_date;?>
+                </td>
+                <td>
+                    <?php echo "12";?>
+                </td>
+
 
             </tr>
         <?php  }?>
@@ -70,7 +90,7 @@
 
 
         <button type="button" class="btn btn-default btn-lg"
-                onclick="location.href='<?php echo site_url('index.php/bug/add_bug');?>'">
+                onclick="location.href='/cs673group2/index.php/bug/add_bug'">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
         <script>

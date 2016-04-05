@@ -18,8 +18,8 @@
     <a href="<?php echo base_url("index.php/project"); ?>" target="main_page">Project Management</a> |
     <a href="/cs673group2/index.php/project/project_mgnt_add" target="main_page">Project Add</a> |
     <a href="<?php echo base_url("index.php/story"); ?>" target="main_page">Stories</a> |
-	<a href="./about.php" target="main_page">About</a> |
-	<a href="./contact.php" target="main_page">Contact</a>
+	<a href="<?php echo base_url("index.php/welcome/about"); ?>" target="main_page">About</a> |
+	<a href="<?php echo base_url("index.php/welcome/contact"); ?>" target="main_page">Contact</a>
    </nav>
 
    
