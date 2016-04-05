@@ -14,12 +14,12 @@
   <body>
 
   <nav id="nav_hor">
-    <a href="<?php echo base_url("index.php/welcome/home"); ?>" target="main_page">Home</a> |
-    <a href="<?php echo base_url("index.php/project"); ?>" target="main_page">Project Management</a> |
-    <a href="/cs673group2/index.php/project/project_mgnt_add" target="main_page">Project Add</a> |
-    <a href="<?php echo base_url("index.php/story"); ?>" target="main_page">Stories</a> |
-	<a href="<?php echo base_url("index.php/welcome/about"); ?>" target="main_page">About</a> |
-	<a href="<?php echo base_url("index.php/welcome/contact"); ?>" target="main_page">Contact</a>
+    <a href="/cs673group2/index.php//welcome/home">Home</a> |
+    <a href="/cs673group2/index.php//project">Project Management</a> |
+    <a href="/cs673group2/index.php/project/project_mgnt_add">Project Add</a> |
+    <a href="/cs673group2/index.php/story">Stories</a> |
+	<a href="/cs673group2/index.php/welcome/about">About</a> |
+	<a href="/cs673group2/index.php/welcome/contact">Contact</a>
    </nav>
 
    
