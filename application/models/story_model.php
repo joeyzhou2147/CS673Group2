@@ -42,4 +42,8 @@ class Story_model  extends CI_Model
         $query = $this->db->query($sql);
         return $query->result();
     }
+    function get_by_project_id($project_id)
+    {
+        return $this->db->get_where('story', array('project_id' => $project_id))->result();
+    }
 }

@@ -25,7 +25,7 @@
                 <select class="form-control" id="addBugOwner" name="addBugOwner" placeholder="Enter Bug owner">
                     <?php
                      // Iterating through the product array
-                    foreach($projeindex as $row){
+                    foreach($projectindex as $row){
                         ?>
                         <option value="<?php echo $row->project_id ?>"><?php echo $row->project_name; ?></option>
                         <?php

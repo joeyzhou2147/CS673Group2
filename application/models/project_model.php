@@ -77,4 +77,7 @@ class Project_model  extends CI_Model
         $idArray = $query->row_array();
         return isset($idArray['project_id'])?$idArray['project_id']:$idArray;
     }
+
+
+    
 }

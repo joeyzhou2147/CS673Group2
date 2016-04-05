@@ -44,7 +44,7 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/menu_page.php');
 
         $this->load->view('project_mgnt/project_mgnt',$projects);
-        $this->load->view('project_mgnt/bottom_page.php');
+      //  $this->load->view('project_mgnt/bottom_page.php');
     }
 
     function project_mgnt_add(){
@@ -138,7 +138,18 @@ class Project extends CI_Controller {
         }
 
     }
+function getstory_in_project($projectid)
+{
+    $stories['storyindex'] = $this->story_model->get_by_project_id($projectid);
+    // $data['page'] = 'userview3';
+    //   $this->load->view('template',$data);
+    /* $this->load->view('userview1',$users);*/
+    $this->load->view('project_mgnt/top_page.php');
+    $this->load->view('project_mgnt/menu_page.php');
 
+    $this->load->view('project_mgnt/story_mgnt',$stories);
+
+}
 
 }
 
