@@ -15,7 +15,7 @@ class Story_model  extends CI_Model
 
     function get()
     {
-        return $this->db->get('story')->result();
+        return $this->db->get('storyrename')->result();
     }
 
 
@@ -45,5 +45,29 @@ class Story_model  extends CI_Model
     function get_by_project_id($project_id)
     {
         return $this->db->get_where('story', array('project_id' => $project_id))->result();
+    }
+
+    function addStory($sProjectID, $sCreateDate, $sDescription,$sUpdateDate,
+                      $StoryUser,$StoryStatus)
+    {
+        $dataArray = array(
+            'project_id' => $sProjectID, // column id is auto incremental
+            'story_create_time' => $sCreateDate,
+            'story_description' => $sDescription,
+            'story_last_update_time' => $sUpdateDate,
+            'story_owner' => $StoryUser,
+            'story_status' => $StoryStatus,
+
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
+
+        if ($this->db->insert('storyrename', $dataArray)) {
+//            return array(
+//                'project_id' => $this->getIdByName($pName),
+//                'project_name' => $pName);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

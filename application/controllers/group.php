@@ -30,6 +30,7 @@ class Group extends CI_Controller {
         //load the employee model
 
         $this->load->model('group_model');
+
     }
     public function index()
     {
@@ -51,60 +52,14 @@ class Group extends CI_Controller {
     
     public function data_in()
     {
-        //get the last story id
-       // $storyid = $this->story_model->get_last_story_id();
-        $data['storyid'] = '3005';
-        //get all the project ids
-        //$project['projectindex']= $this->project_model->get_all_project_id();
-         $data['projectindex'] = array('5000','5001','50002');
-        //getall user names from user table
-        $data['owners'] = array('kali','gilbert','terry','han','joe');
-        // $data['page'] = 'project_mgnt_add_story';
-
-        $data['status']  = array('pending','open','completed');
-         //$this->load->view('template', $data);
-
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('project_mgnt_add_story', $data);
-
-       // $this->load->view('add_story', $data);
     }
     
-    public function add_story()
+    public function add_group()
     {
-        $stories['storyindex'] = $this->story_model->get();
-
-        $id=$this->input->post('storyiid');
-        $idescription=$this->input->post('storydescription');
 
 
-
-
-
-
-
-            $data['message'] = 'Data Inserted Successfully';
-            //Loading View
-            $this->load->view('insert_view', $data);
-        
-
-    }
-    public function landing()
-    {
-        $this->load->view('landing');
-    }
-    public function welcome_message()
-    {
-        $this->load->view('welcome_message');
-    }
-    public function login()
-    {
-        $this->load->view('login');
-    }
-    public function home()
-    {
-        $this->load->view('home');
     }
 
 }

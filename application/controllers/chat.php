@@ -3,8 +3,9 @@
 class Chat extends CI_Controller {
   /* The default function that gets called when visiting the page */
   public function index() 
-  {       
-    
+  {
+    $this->load->view('project_mgnt/top_page.php');
+    $this->load->view('project_mgnt/menu_page.php');
     $this->load->view('chat-view');
   }
   

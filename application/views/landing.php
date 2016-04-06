@@ -145,7 +145,7 @@
 					<div class="col-md-4">
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
-                                <a href="<?php echo base_url("index.php/user"); ?>">
+                                <a href="<?php echo base_url("index.php/setup"); ?>">
                                     <img src="<?php echo base_url("assets/images/settings.jpg"); ?>"  class="img-responsive" alt="" />
 
                                     <div class="overlay">

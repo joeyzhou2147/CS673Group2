@@ -56,15 +56,10 @@
 
 
         <button type="button" class="btn btn-default btn-lg"
-                onclick="location.href='<?php echo site_url('index.php/project/data_in');?>'">
+                onclick="location.href='<?php echo site_url('index.php/group/data_in');?>'">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
-        <script>
-            function onInsertStory()
-            {
-                <?php echo base_url('index.php/story/data_in'); ?>
-            }
-        </script>
+
         <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>

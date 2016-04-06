@@ -35,15 +35,17 @@ class Setup extends CI_Controller {
     public function index()
     {
 
-        //$users['userindex'] = $this->user_model->get();
+        $users['userindex'] = $this->user_model->get();
 
-        // $data['page'] = 'userview3';
-        //   $this->load->view('template',$data);
-        /* $this->load->view('userview1',$users);*/
+
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/user_mgnt');
+
+        $groups['groupindex'] = $this->group_model->get();
+
+        $this->load->view('project_mgnt/group_mgnt',$groups);
+        $this->load->view('project_mgnt/user_mgnt',  $users);
 
 
 

@@ -60,7 +60,7 @@
   </script>
 </head>
 <body>
-  <h1> Chat Example on Codeigniter </h1>
+  <h1> Group Chat window </h1>
   
   <textarea id="received" rows="10" cols="50">
   </textarea>

@@ -71,9 +71,12 @@ class Project extends CI_Controller {
         }else{
             $container['message'] = 'Project "'.$pName.'" add failed';
         }
+
+        $this->index();
+        /*
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('project_mgnt/project_mgnt_add', $container);
+        $this->load->view('project_mgnt/project_mgnt_add', $container);*/
     }
     function data_in_backup()
     {

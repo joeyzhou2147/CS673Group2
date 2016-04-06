@@ -20,52 +20,41 @@
 
    <div class="container">
      <h2>Add New Story</h2>
-     <form class="form-horizontal" role="form" method="POST" action="index.php/story/add_story">
-	   <div class="form-group">
-         <label class="control-label col-sm-2" for="text">Story ID :</label>
-         <div class="col-sm-10">
-             <?php  echo $story_count;?>
-           <input type="number" class="form-control" id="storyid" value=<?php if(isset($dataStories)){echo $dataStories[0]->story_id;} ?>>
-         </div>
-       </div>
-	   
-	   <div class="form-group">
-         <label class="control-label col-sm-2" for="text">Project ID:</label>
-         <div class="col-sm-10">
-           <select>
-             <option selected="selected">Choose one</option>
-             <?php
-             // A sample product array
+     <form class="form-horizontal" role="form" action="/cs673group2/index.php/story/add_story" method="post">
 
-             // Iterating through the product array
-             foreach($project_ids as $row){
-               ?>
-               <option value="<?php echo $row->project_id ?>"><?php echo $row->project_id; ?></option>
+
+         <div class="form-group">
+           <label class="control-label col-sm-2" for="text">Project ID:</label>
+           <div class="col-sm-10">
+             <select class="form-control" id="addProjectId" name="addProjectId" placeholder="Enter project Id">
+
                <?php
-             }
-             ?>
-           </select>
+               // A sample product array
+
+               // Iterating through the product array
+               foreach($projectindex as $row){
+                 ?>
+                 <option value="<?php echo $row->project_id ?>"><?php echo $row->project_name; ?></option>
+                 <?php
+               }
+               ?>
+             </select>
+           </div>
          </div>
-       </div>
-       <div class="form-group">
-         <label class="control-label col-sm-2" for="text">Story create time :</label>
-         <input type="time" name="ctime" value="">
-       </div>
+
+
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Story Description :</label>
          <div class="col-sm-10">
-           <input type="text" class="form-control" id="inputdefault" placeholder="Enter Project Name">
+           <input type="text" class="form-control" id="addStoryDescription" name="addStoryDescription" placeholder="Enter Description">
          </div>
        </div>
-       <div class="form-group">
-         <label class="control-label col-sm-2" for="text">story update time:</label>
-         <input type="date" name="utime">
-       </div>
+
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">story owner:</label>
          <div class="col-sm-10">
-           <select>
-             <option selected="selected">Choose one</option>
+           <select class="form-control" id="addStoryUser" name="addStoryUser" placeholder="Enter Story owner">
+
              <?php
                foreach($owners as $item){
                ?>
@@ -80,8 +69,8 @@
        <div class="form-group">
          <label class="control-label col-sm-2" for="text">story status:</label>
          <div class="col-sm-10">
-           <select>
-             <option selected="selected">Choose one</option>
+           <select class="form-control" id="addStoryStatus" name="addStoryStatus" placeholder="Enter project Id">>
+
              <?php
              foreach($status as $item){
                ?>

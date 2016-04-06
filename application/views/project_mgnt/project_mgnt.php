@@ -8,7 +8,9 @@
     <title>Project Management</title>
     
     <!--[if IE]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+
+    </script>
     <![endif]-->
 
   </head>
@@ -33,6 +35,8 @@
               <th>project_start_date</th>
               <th>project_end_date</th>
               <th>project_status</th>
+              <th>update</th>
+              <th>delete</th>
 
           </tr>
           </thead>
@@ -61,6 +65,17 @@
                   </td>
                   <td>
                       <?php echo $projects -> project_status;?>
+                  </td>
+
+                  <td>
+                      <a href="#">
+                          <img src="../assets/images/available_updates.png" height="18" width="18" />
+                      </a>
+                  </td>
+                  <td>
+                      <a href="#">
+                          <img src="../assets/images/recycle_bin-512.png"  onclick="onRowClcik(this)" height="18" width="18"/>
+                          </a>
                   </td>
               </tr>
           <?php  }?>

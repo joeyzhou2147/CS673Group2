@@ -56,7 +56,7 @@ class Story extends CI_Controller {
         $data['storyid'] = '3005';
         //get all the project ids
         //$project['projectindex']= $this->project_model->get_all_project_id();
-         $data['projectindex'] = array('5000','5001','50002');
+         $data['projectindex'] = $this->project_model->get();
         //getall user names from user table
         $data['owners'] = array('kali','gilbert','terry','han','joe');
         // $data['page'] = 'project_mgnt_add_story';
@@ -66,29 +66,32 @@ class Story extends CI_Controller {
 
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('project_mgnt_add_story', $data);
+        $this->load->view('project_mgnt/project_mgnt_add_story', $data);
 
        // $this->load->view('add_story', $data);
     }
     
     public function add_story()
     {
-        $stories['storyindex'] = $this->story_model->get();
 
-        $id=$this->input->post('storyiid');
-        $idescription=$this->input->post('storydescription');
+        $container = array();
 
+        $sProjectID = $this->input->post('addProjectId');
+        $sCreateDate =  date("m.d.y");   // 03.10.01
+        $sDescription = $this->input->post('addStoryDescription');
+        $sUpdateDate = date("m.d.y");  // 03.10.01
+        $StoryUser = $this->input->post('addStoryUser');
+        $StoryStatus =$this->input->post('addStoryStatus');
 
+        if($this->story_model->addStory($sProjectID, $sCreateDate, $sDescription,$sUpdateDate,
+            $StoryUser,$StoryStatus))
+        {
+            $container['message'] = 'You successfully add this Story ';
+        }else{
+            $container['message'] = 'Story add failed';
+        }
 
-
-
-
-
-            $data['message'] = 'Data Inserted Successfully';
-            //Loading View
-            $this->load->view('insert_view', $data);
-        
-
+        $this->index();
     }
     public function project_mgnt()
     {

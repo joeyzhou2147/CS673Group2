@@ -31,7 +31,7 @@
             <th>project_id</th>
             <th>first_name</th>
             <th>last_name</th>
-            <th>salt</th>
+            <th>register_date</th>
 
 
         </tr>
@@ -54,7 +54,7 @@
                     <?php echo $users -> last_name;?>
                 </td>
                 <td>
-                    <?php echo $users -> salt;?>
+                    <?php echo $users -> register_date;?>
                 </td>
                 
             </tr>
