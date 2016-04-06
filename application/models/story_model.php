@@ -15,7 +15,7 @@ class Story_model  extends CI_Model
 
     function get()
     {
-        return $this->db->get('storyrename')->result();
+        return $this->db->get('story')->result();
     }
 
 
@@ -61,7 +61,7 @@ class Story_model  extends CI_Model
             //'register_date' => date("Y-m-d H:i:s"),
         );
 
-        if ($this->db->insert('storyrename', $dataArray)) {
+        if ($this->db->insert('story', $dataArray)) {
 //            return array(
 //                'project_id' => $this->getIdByName($pName),
 //                'project_name' => $pName);

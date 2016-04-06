@@ -54,11 +54,26 @@ class Group extends CI_Controller {
     {
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/group_mgnt_add');
     }
     
     public function add_group()
     {
+        $container = array();
 
+        $sGroupName = $this->input->post('addGroupName');
+        $sGroupId = "7011";
+        if($this->group_model->addGroup($sGroupName,$sGroupId))
+        {
+            $container['message'] = 'You successfully add this Story ';
+        }else{
+            $container['message'] = 'Story add failed';
+        }
+
+        //after finishing the add lodad the controller
+        require_once(APPPATH.'controllers/setup.php'); //include controller
+        $aObj = new Setup();  //create object
+        $aObj->index(); //call function
 
     }
 

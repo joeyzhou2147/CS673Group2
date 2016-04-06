@@ -204,4 +204,9 @@ class User_model extends CI_Model
         }
         return $result;
     }
+    public function  add_user($Group)
+    {
+        
+    }
+    
 }

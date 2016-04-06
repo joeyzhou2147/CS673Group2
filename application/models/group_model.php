@@ -149,4 +149,21 @@ class Group_model extends CI_Model
         }
         return $result;
     }
+    public function addGroup($sGroupName,$GroupId)
+    {
+        $dataArray = array(
+            'group_name' => $sGroupName, // column id is auto incremental
+        //     'group_id'  => $GroupId,
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
+
+        if ($this->db->insert('group', $dataArray)) {
+//            return array(
+//                'project_id' => $this->getIdByName($pName),
+//                'project_name' => $pName);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
