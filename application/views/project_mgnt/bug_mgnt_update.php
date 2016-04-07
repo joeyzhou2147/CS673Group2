@@ -17,7 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Project Add</title>
 
     <!--[if IE]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+
+	</script>
     <![endif]-->
 </head>
 <body>
@@ -30,8 +32,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Project Id:</label>
             <div class="col-sm-10">
-
-                <select class="form-control" id="addBugProjectId" name="addBugProjectId" placeholder="Enter Bug owner">
+            
+                <select class="form-control" id="updateBugProjectId" name="updateBugProjectId" placeholder="Enter Bug owner">
+				     <option value="<?php echo $bugindex[0]->project_id ?>"><?php echo $bugindex[0]->project_id; ?></option>
                     <?php
                      // Iterating through the product array
                     foreach($projectindex as $row){
@@ -46,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Description:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="addBugDescription" name="addBugDescription" placeholder="Enter Bug Description">
+                <input type="text" class="form-control" id="addBugDescription" name="addBugDescription" value=<?php echo $bugindex[0]->bug_description; ?>>
             </div>
         </div>
 
@@ -54,6 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <label class="control-label col-sm-2" for="text">Bug Assigned to:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="addBugOwner" name="addBugOwner" placeholder="Enter Bug owner">
+					    <option value="<?php echo $bugindex[0]->bug_assigned_to ?>"><?php echo $bugindex[0]->bug_assigned_to; ?></option>
                         <option value="Kali">Kali</option>
                         <option value="Gilbert">Gilbert</option>
                         <option value="Terry">Terry</option>
@@ -67,6 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <label class="control-label col-sm-2" for="text">Bug Severity to:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="addBugSeverity" name="addBugSeverity" placeholder="Enter Bug Severity">
+					   <option value="<?php echo $bugindex[0]->bug_severity ?>"><?php echo $bugindex[0]->bug_severity; ?></option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Low">Low</option>
@@ -78,6 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <label class="control-label col-sm-2" for="text">Bug Status:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="addBugStatus" name="addBugStatus" placeholder="Enter Bug Status">
+					  <option value="<?php echo $bugindex[0]->bug_status ?>"><?php echo $bugindex[0]->bug_status; ?></option>
                         <option value="Open">Open</option>
                         <option value="Pending">Pending</option>
                         <option value="Close">Close</option>
@@ -88,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Due Date:</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="addBugDueDate" name="addBugDueDate" placeholder="Enter Due  Date" value="<?php echo date("Y-m-d");?>">
+                <input type="date" class="form-control" id="addBugDueDate" name="addBugDueDate" placeholder="Enter Due  Date" value="<?php echo $bugindex[0]->bug_due_date;?>">
             </div>
         </div>
 

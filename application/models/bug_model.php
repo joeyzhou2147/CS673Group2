@@ -79,72 +79,6 @@ class Bug_model extends CI_Model
     /*
      * useless function
      * */
-    public function getUserNameById($id)
-    {
-        $sql = 'SELECT user_name FROM user where user_id = ?';
-        $query = $this->db->query($sql, array($id));
-        $row = $query->row();
-        return $row->user_name;
-    }
-
-
-    public function getIdByEmail($email)
-    {
-        $sql = 'SELECT user_id FROM user where email = ?';
-        $query = $this->db->query($sql, array($email));
-        $idArray = $query->row_array();
-        return $idArray['user_id'];
-    }
-
-    public function validUqEmailByString($email)
-    {
-        $sql = 'SELECT email FROM user where email = ?';
-        $query = $this->db->query($sql, array($email));
-        $rowNum = $query->num_rows();
-        return ($rowNum < 1 ? true : false);
-    }
-
-    public function validLoginByEmail($email)
-    {
-        $sql = 'SELECT email FROM user where email = ?';
-        $query = $this->db->query($sql, array($email));
-        $rowNum = $query->num_rows();
-        return $rowNum > 0;
-    }
-
-    public function validLoginPwByEmail($password, $email)
-    {
-        $passwordSql = 'SELECT password FROM user where email = ?';
-        $passwordQuery = $this->db->query($passwordSql, array($email));
-        $password = hash('md5', $password);
-        $saltQuery = $this->db->query('SELECT salt FROM user where email = ?', array($email));
-        $saltArray = $saltQuery->row_array();
-        $salt = $saltArray['salt'];
-        $generatePassword = hash('md5', $password . $salt);
-        if ($passwordQuery->num_rows() > 0) {
-
-            $passwordArray = $passwordQuery->row_array();
-            if ($passwordArray['password'] != $generatePassword) return false;
-
-        } else {
-            return false;
-        }
-
-        return true;
-    }
-
-    /*
-     * TODO duplicate? this function seems to be useless. --Joe(YuZhou)
-     * */
-    public function validPasswordByUserName($password, $email)
-    {
-        $this->db->where('email', $email);
-        $query = $this->db->get('user');
-        $user = $query->row_array();
-        $password = hash('md5', $password);
-        $generatePassword = hash('md5', $password . $user['salt']);
-        return strcmp($user['password'], $generatePassword) == 0;
-    }
 
 
     public function updateLastLoginTime($email)
@@ -173,4 +107,11 @@ class Bug_model extends CI_Model
         }
         return $result;
     }
+	public function getBugByBugId($bugId)
+	{
+		  //$this->db->select('user_id, username, password')->from('user');
+		    $this->db->where('bug_id', $bugId)->from('bug');
+			return $this->db->get()->result();
+	}
+	
 }

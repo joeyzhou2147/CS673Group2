@@ -98,6 +98,16 @@ class Bug extends CI_Controller {
     {
         $this->load->view('home');
     }
+	public function data_in_update()
+	{
+		  $container['projectindex'] = $this->project_model->get();
+		 $container['bugindex'] = $this->bug_model->getBugByBugId("13");
+       // $container = array();
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/bug_mgnt_update', $container);
+		//$this->load->view('project_mgnt/bug_mgnt', $container);
+	}
 
 }
 
