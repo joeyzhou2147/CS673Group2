@@ -78,15 +78,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
 
       </script>
-    
+
     <!--[if IE]>
     <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js">
     </script>
     <![endif]-->
 
   </head>
-  
-  
+
+
   <body>
 
   <br />

@@ -58,9 +58,6 @@ class Project extends CI_Controller {
         }
         $projects['projectindex'] = $this->project_model->get();
 
-        echo $projects['message'];
-
-
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
