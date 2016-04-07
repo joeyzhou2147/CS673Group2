@@ -13,7 +13,7 @@
   </head>
   <body>
 
-  <div class="list-group">
+  <div class="list-group" style="margin-top: 40px;">
     <a href="#" class="list-group-item active">
       <h4 class="list-group-item-heading">List of our team</h4>
       <p class="list-group-item-text">Please, contact us for your question.</p>
