@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-	<link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/project_mgnt.css">
+	<link rel="stylesheet" href="/CS673Group2/assets/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/CS673Group2/assets/stylesheets/project_mgnt.css">
 	
     <title>Project Management</title>
     
@@ -93,12 +93,6 @@
                   onclick="location.href='/cs673group2/index.php/project/project_mgnt_add'">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </button>
-          <script>
-              function onInsertStory()
-              {
-                  <?php echo base_url('index.php/story/data_in'); ?>
-              }
-          </script>
           <button type="button" class="btn btn-default btn-lg">
               <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
           </button>

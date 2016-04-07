@@ -19,14 +19,23 @@ class Chat_model extends CI_Model {
   
   function insert_message($message)
   {
-    $this->message = $message;
-    $this-> time = time();  
-    $this->db->insert('chats', $this);
+  //  $this->message = $message;
+  //  $this-> time = time();
+    $cTime =  time();
+    $dataArray = array(
+        'message' => $message, // column id is auto incremental
+        'time' => $cTime,
+
+
+      //'register_date' => date("Y-m-d H:i:s"),
+    );
+
+    $this->db->insert('chats', $dataArray);
   }
 
   function get_chat_after($time)
   {
-    $this->db->where('time >', $time)->order_by('time', 'DESC')->limit(10); 
+    $this->db->where('time >', $time)->order_by('time', 'DESC')->limit(10);
     $query = $this->db->get('chats');
     
     $results = array();
@@ -37,6 +46,7 @@ class Chat_model extends CI_Model {
     }
     
     return array_reverse($results);
+  //  return $this->db->get('chats')->result();
   }
 
   function create_table()

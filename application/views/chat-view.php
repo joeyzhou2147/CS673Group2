@@ -1,13 +1,13 @@
 <html>
 <head>
-  <title> Chat Exmaples! </title>
+  <title> Messaging </title>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <script>
     var time = 0;
   
     var updateTime = function (cb) {
-      $.getJSON("./time", function (data) {
+      $.getJSON("time", function (data) {
           cb(~~data);
       });
     };
@@ -15,7 +15,7 @@
     var sendChat = function (message, cb) {
 
 
-      $.getJSON("insert_chat?message=" + message, function (data){
+      $.getJSON("./chat/insert_chat?message=" + message, function (data){
         cb();
       });
     }
@@ -27,15 +27,19 @@
     }
     
     var getNewChats = function () {
-		
 
-      $.getJSON("./get_chats?time=" + time, function (data){
+
+      $.getJSON("./chat/get_chats?time=" + time, function (data){
+
+        console.log("f1");
+     
         addDataToReceived(data);
         // reset scroll height
         setTimeout(function(){
            $('#received').scrollTop($('#received')[0].scrollHeight);
         }, 0);
         time = data[data.length-1][1];
+
       });      
     }
   
@@ -53,7 +57,7 @@
       });
       setInterval(function (){
         console.log("hello");
-        getNewChats(0);
+        getNewChats();
       },1500);
     });
     

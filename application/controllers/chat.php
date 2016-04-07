@@ -12,14 +12,14 @@ class Chat extends CI_Controller {
   public function get_chats() {
     /* Connect to the mySQL database - config values can be found at:
     /application/config/database.php */
-    echo "before load database";
+  
     $dbconnect = $this->load->database();
     
     /* Load the database model:
     /application/models/simple_model.php */
     $this->load->model('Chat_model');
     
-	echo "before cdrate";
+
     /* Create a table if it doesn't exist already */
     $this->Chat_model->create_table();
     

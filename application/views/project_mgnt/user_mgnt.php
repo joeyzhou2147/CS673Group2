@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/project_mgnt.css">
+    <link rel="stylesheet" href="/cs673group2/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/cs673group2/assets/stylesheets/project_mgnt.css">
 
     <title>User Management</title>
 

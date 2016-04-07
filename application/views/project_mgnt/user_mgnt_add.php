@@ -19,7 +19,7 @@
     <form class="form-horizontal" role="form" action="/cs673group2/index.php/user/add_user_group" method="post">
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Project ID:</label>
+            <label class="control-label col-sm-2" for="text">Enter First Name :</label>
             <div class="col-sm-10">
                 <select class="form-control" id="addUserId" name="addUserId" placeholder="Enter project Id">
 
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Project ID:</label>
+            <label class="control-label col-sm-2" for="text">Enter Group Name:</label>
             <div class="col-sm-10">
                 <select class="form-control" id="addGroupId" name="addGroupId" placeholder="Enter project Id">
 
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Project ID:</label>
+            <label class="control-label col-sm-2" for="text">Enter User Role :</label>
             <div class="col-sm-10">
                 <select class="form-control" id="addUserRole" name="addUserRole" placeholder="Enter project Id">
 
@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Project ID:</label>
+            <label class="control-label col-sm-2" for="text">Enter User Status:</label>
             <div class="col-sm-10">
                 <select class="form-control" id="addUserStatus" name="addUserStatus" placeholder="Enter project Id">
 

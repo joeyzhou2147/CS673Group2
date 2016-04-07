@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <link href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>" rel="stylesheet" type="text/css" />
-      <link href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>" rel="stylesheet" type="text/css" />
+      <link href="/cs673group2/assets/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <link href="/cs673group2/assets/stylesheets/project_mgnt.css" rel="stylesheet" type="text/css" />
 
 	
     <title>Top Title</title>
