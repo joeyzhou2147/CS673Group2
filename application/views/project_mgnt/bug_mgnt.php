@@ -15,7 +15,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
     <title>Bug Management</title>
+ <script type="text/javascript" language="JavaScript">
+          var xmlhttp;
 
+          function updateBug(projectId){
+              url = "/cs673group2/index.php/bug/data_in_update"+projectId;
+              xmlhttp=null;
+              if (window.XMLHttpRequest)
+              {// code for IE7, Firefox, Mozilla, etc.
+                  xmlhttp=new XMLHttpRequest();
+              }
+              else if (window.ActiveXObject)
+              {// code for IE5, IE6
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              if (xmlhttp!=null)
+              {
+                  window.location.href="/cs673group2/index.php/bug/data_in_update?projectId="+projectId;
+                  xmlhttp.onreadystatechange=onResponse(projectId);
+                  xmlhttp.open("GET",url,true);
+                  xmlhttp.send(null);
+              }
+              else
+              {
+                  alert("Your browser does not support XMLHTTP.");
+              }
+          }
+		  </script>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -44,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th>bug_due_date</th>
             <th>bug_complete_date</th>
             <th>days_open</th>
-
+            <th>update</th>
 
 
 
@@ -84,8 +110,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td>
                     <?php echo "12";?>
                 </td>
-
-
+                   <td onclick="updateBug('<?php echo $bugs->bug_id ;?>')" style="cursor: pointer;"
+					<a href="#">
+							  <img src="/cs673group2/assets/images/available_updates.png" height="18" width="18" />
+						  </a>
+                </td>
             </tr>
         <?php  }?>
         </tbody>

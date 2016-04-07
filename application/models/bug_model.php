@@ -80,7 +80,27 @@ class Bug_model extends CI_Model
      * useless function
      * */
 
+function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
+                        $bSeverity,$bStatus,$bDueDate)
+    {
+		    $this->load->database();
+        $dataArray = array(
+             'project_id' => $bProjectId, // column id is auto incremental
+            'bug_description' => $bDescription,
+            'bug_assigned_to' => $bassignedTo,
+            'bug_severity' => $bSeverity,
+            'bug_status' => $bStatus,
+            'bug_due_date' => $bDueDate,
 
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
+		//alert($bBugId);
+        $this->db->where('bug_id', $bBugId);
+		$this->db->update('bug', $dataArray);
+		
+		 
+       
+    }
     public function updateLastLoginTime($email)
     {
         if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -109,6 +129,7 @@ class Bug_model extends CI_Model
     }
 	public function getBugByBugId($bugId)
 	{
+		  
 		  //$this->db->select('user_id, username, password')->from('user');
 		    $this->db->where('bug_id', $bugId)->from('bug');
 			return $this->db->get()->result();

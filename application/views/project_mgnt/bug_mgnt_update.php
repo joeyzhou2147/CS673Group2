@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
-    <title>Project Add</title>
+    <title>Bug Update</title>
 
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -27,8 +27,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
     <h2>Enter New Bug</h2>
-    <form class="form-horizontal" role="form" action="/cs673group2/index.php/bug/data_in" method="post">
-
+    <form class="form-horizontal" role="form" action="/cs673group2/index.php/bug/data_update" method="post">
+	
+	
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="text">Bug Id:</label>
+            <div class="col-sm-10">
+			 <input class="form-control col-sm-2" for="text" id="updateBugId" name="updateBugId" value=<?php echo $bugindex[0]->bug_id; ?> disabled>           
+            </div>
+        </div>
+		
+		
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Project Id:</label>
             <div class="col-sm-10">
@@ -49,14 +58,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Description:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="addBugDescription" name="addBugDescription" value=<?php echo $bugindex[0]->bug_description; ?>>
+                <input type="text" class="form-control" id="updateBugDescription" name="updateBugDescription" value=<?php echo $bugindex[0]->bug_description; ?>>
             </div>
         </div>
 
           <div class="form-group">
                 <label class="control-label col-sm-2" for="text">Bug Assigned to:</label>
                 <div class="col-sm-10">
-                    <select class="form-control" id="addBugOwner" name="addBugOwner" placeholder="Enter Bug owner">
+                    <select class="form-control" id="updateBugOwner" name="updateBugOwner" placeholder="Enter Bug owner">
 					    <option value="<?php echo $bugindex[0]->bug_assigned_to ?>"><?php echo $bugindex[0]->bug_assigned_to; ?></option>
                         <option value="Kali">Kali</option>
                         <option value="Gilbert">Gilbert</option>
@@ -70,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group">
                 <label class="control-label col-sm-2" for="text">Bug Severity to:</label>
                 <div class="col-sm-10">
-                    <select class="form-control" id="addBugSeverity" name="addBugSeverity" placeholder="Enter Bug Severity">
+                    <select class="form-control" id="updateBugSeverity" name="updateBugSeverity" placeholder="Enter Bug Severity">
 					   <option value="<?php echo $bugindex[0]->bug_severity ?>"><?php echo $bugindex[0]->bug_severity; ?></option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
@@ -82,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group">
                 <label class="control-label col-sm-2" for="text">Bug Status:</label>
                 <div class="col-sm-10">
-                    <select class="form-control" id="addBugStatus" name="addBugStatus" placeholder="Enter Bug Status">
+                    <select class="form-control" id="updateBugStatus" name="updateBugStatus" placeholder="Enter Bug Status">
 					  <option value="<?php echo $bugindex[0]->bug_status ?>"><?php echo $bugindex[0]->bug_status; ?></option>
                         <option value="Open">Open</option>
                         <option value="Pending">Pending</option>
@@ -94,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Due Date:</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="addBugDueDate" name="addBugDueDate" placeholder="Enter Due  Date" value="<?php echo $bugindex[0]->bug_due_date;?>">
+                <input type="date" class="form-control" id="updateBugDueDate" name="updateBugDueDate" placeholder="Enter Due  Date" value="<?php echo $bugindex[0]->bug_due_date;?>">
             </div>
         </div>
 

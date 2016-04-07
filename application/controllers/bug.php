@@ -82,32 +82,49 @@ class Bug extends CI_Controller {
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/bug_mgnt_add', $container);
     }
-    public function landing()
-    {
-        $this->load->view('landing');
-    }
-    public function welcome_message()
-    {
-        $this->load->view('welcome_message');
-    }
-    public function login()
-    {
-        $this->load->view('login');
-    }
-    public function home()
-    {
-        $this->load->view('home');
-    }
+
+    
 	public function data_in_update()
 	{
+		 
 		  $container['projectindex'] = $this->project_model->get();
-		 $container['bugindex'] = $this->bug_model->getBugByBugId("13");
+		  if($this->input->get('projectId'))
+		 {
+			 $container['bugindex'] = $this->bug_model->getBugByBugId($this->input->get('projectId'));      
+		 }
+		 else
+		 {
+		    $container['bugindex'] = $this->bug_model->getBugByBugId("13");
+		 }
        // $container = array();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/bug_mgnt_update', $container);
 		//$this->load->view('project_mgnt/bug_mgnt', $container);
 	}
+	
+	 public function data_update()
+    {
+       
+        $container = array();
+        $bBugId = $this->input->post('updateBugId');
+        $bProjectId = $this->input->post('updateBugProjectId');
+        $bDescription = $this->input->post('updateBugDescription');
+        $bassignedTo = $this->input->post('updateBugOwner');
+        $bSeverity = $this->input->post('updateBugSeverity');
+        $bStatus = $this->input->post('updateBugStatus');
+        $bDueDate = $this->input->post('updateBugDueDate');
+         
+        if($this->bug_model->updateBug( $bBugId,$bProjectId, $bDescription, $bassignedTo,
+            $bSeverity,$bStatus,$bDueDate)){
+            $container['message'] = 'You successfully added this bug ';
+        }else{
+            $container['message'] = 'Bugg  add failed';
+        }
+
+      //  $this->load->view('project_mgnt/bug_mgnt', $container);
+        $this->index();
+    }
 
 }
 
