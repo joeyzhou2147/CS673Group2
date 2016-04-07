@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/cs673group2/assets/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/cs673group2/assets/stylesheets/project_mgnt.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
     <title>User Add</title>
 
@@ -19,9 +19,9 @@
     <form class="form-horizontal" role="form" action="/cs673group2/index.php/user/add_user_group" method="post">
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Enter First Name :</label>
+            <label class="control-label col-sm-2" for="text">User Name:</label>
             <div class="col-sm-10">
-                <select class="form-control" id="addUserId" name="addUserId" placeholder="Enter project Id">
+                <select class="form-control" id="addUserId" name="addUserId" placeholder="Enter User Name">
 
                     <?php
                     // A sample product array
@@ -37,9 +37,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Enter Group Name:</label>
+            <label class="control-label col-sm-2" for="text">Project Name:</label>
             <div class="col-sm-10">
-                <select class="form-control" id="addGroupId" name="addGroupId" placeholder="Enter project Id">
+                <select class="form-control" id="addGroupId" name="addGroupId" placeholder="Enter Project Name">
 
                     <?php
                     // A sample product array
@@ -56,9 +56,9 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Enter User Role :</label>
+            <label class="control-label col-sm-2" for="text">User Role:</label>
             <div class="col-sm-10">
-                <select class="form-control" id="addUserRole" name="addUserRole" placeholder="Enter project Id">
+                <select class="form-control" id="addUserRole" name="addUserRole" placeholder="Enter User Role">
 
 
                     <option value="Admin">Admin</option>
@@ -69,9 +69,9 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Enter User Status:</label>
+            <label class="control-label col-sm-2" for="text">User Status:</label>
             <div class="col-sm-10">
-                <select class="form-control" id="addUserStatus" name="addUserStatus" placeholder="Enter project Id">
+                <select class="form-control" id="addUserStatus" name="addUserStatus" placeholder="Enter User Status">
 
                     <option value="Active">Active</option>
                     <option value="InActive">InActive</option>

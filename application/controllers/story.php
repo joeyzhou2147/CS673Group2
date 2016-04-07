@@ -33,22 +33,34 @@ class Story extends CI_Controller {
     }
     public function index()
     {
+        if($this->input->get('projectId')){
+            $stories['storyindex'] = $this->story_model->get_by_project_id($this->input->get('projectId'));
+        }else{
+            $stories['storyindex'] = $this->story_model->get();
+        }
 
-        $stories['storyindex'] = $this->story_model->get();
-
-       // $data['page'] = 'userview3';
-     //   $this->load->view('template',$data);
-        /* $this->load->view('userview1',$users);*/
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
         $this->load->view('project_mgnt/story_mgnt',$stories);
-
-      
-
-
     }
-    
+    public function delete()
+    {
+        if($this->input->get('storyId')){
+            if($this->story_model->delete_by_story_id($this->input->get('storyId'))){
+                $stories['message'] = 'Successfully delete story "'.$this->input->get('storyId').'".';
+            }else{
+                $stories['message'] = 'Delete story "'.$this->input->get('storyId').'" failed.';
+            }
+        }
+        $stories['storyindex'] = $this->story_model->get();
+
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+
+        $this->load->view('project_mgnt/story_mgnt',$stories);
+    }
+
     public function data_in()
     {
         //get the last story id
@@ -120,23 +132,6 @@ class Story extends CI_Controller {
         $container['project_ids'] = $this->project_model->get_project_column('project_id');
 
         $this->load->view('project_mgnt/project_mgnt_add_story',$container);
-    }
-
-    public function landing()
-    {
-        $this->load->view('landing');
-    }
-    public function welcome_message()
-    {
-        $this->load->view('welcome_message');
-    }
-    public function login()
-    {
-        $this->load->view('login');
-    }
-    public function home()
-    {
-        $this->load->view('home');
     }
 
 }

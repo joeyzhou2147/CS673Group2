@@ -47,6 +47,26 @@ class Project extends CI_Controller {
       //  $this->load->view('project_mgnt/bottom_page.php');
     }
 
+    public function delete()
+    {
+        if($this->input->get('projectId')){
+            if($this->project_model->delete_by_project_id($this->input->get('projectId'))){
+                $projects['message'] = 'Successfully delete project "'.$this->input->get('projectId').'".';
+            }else{
+                $projects['message'] = 'Delete project "'.$this->input->get('projectId').'" failed.';
+            }
+        }
+        $projects['projectindex'] = $this->project_model->get();
+
+        echo $projects['message'];
+
+
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+
+        $this->load->view('project_mgnt/project_mgnt',$projects);
+    }
+
     function project_mgnt_add(){
         //$container = array();
         $container['groupIndex']=  $this->group_model->get();
@@ -141,18 +161,18 @@ class Project extends CI_Controller {
         }
 
     }
-function getstory_in_project($projectid)
-{
-    $stories['storyindex'] = $this->story_model->get_by_project_id($projectid);
-    // $data['page'] = 'userview3';
-    //   $this->load->view('template',$data);
-    /* $this->load->view('userview1',$users);*/
-    $this->load->view('project_mgnt/top_page.php');
-    $this->load->view('project_mgnt/menu_page.php');
+    function getstory_in_project($projectid)
+    {
+        $stories['storyindex'] = $this->story_model->get_by_project_id($projectid);
+        // $data['page'] = 'userview3';
+        //   $this->load->view('template',$data);
+        /* $this->load->view('userview1',$users);*/
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
 
-    $this->load->view('project_mgnt/story_mgnt',$stories);
+        $this->load->view('project_mgnt/story_mgnt',$stories);
 
-}
+    }
 
 }
 

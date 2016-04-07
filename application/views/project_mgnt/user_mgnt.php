@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/cs673group2/assets/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/cs673group2/assets/stylesheets/project_mgnt.css">
+    <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
     <title>User Management</title>
 
@@ -77,6 +77,10 @@
         <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
+    </div>
+
+    <div>
+        <p align="center" style="color:red;"><?php if(isset($message)){echo $message;}?></p>
     </div>
 
 </div>

@@ -1,9 +1,18 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Created by PhpStorm.
+ * User: Joe
+ * Date: 2016/3/15
+ * Time: 18:45
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="<?php echo site_url("assets/stylesheets/bootstrap.min.css"); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo site_url("assets/stylesheets/project_mgnt.css"); ?>" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
     <title>Bug Management</title>
 
@@ -21,7 +30,7 @@
 
 <div class="container">
     <h2>Bug Lists</h2>
-    <p>All of your projects are here and you can add or subtract the lists</p>
+    <p>All of your bugs are here and you can add or subtract the lists</p>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -93,12 +102,6 @@
                 onclick="location.href='/cs673group2/index.php/bug/add_bug'">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
-        <script>
-            function onInsertStory()
-            {
-                <?php echo base_url('index.php/story/data_in'); ?>
-            }
-        </script>
         <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>

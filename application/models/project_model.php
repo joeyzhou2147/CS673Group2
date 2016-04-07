@@ -31,6 +31,10 @@ class Project_model  extends CI_Model
         return $this->db->get_where('story', array('story_id' => $story_id))->result();
     }
 
+    function delete_by_project_id($project_id){
+        return  $this->db->delete('project', array('project_id' => $project_id));
+    }
+
     function form_insert($data){
 // Inserting in Table(students) of Database(college)
         $this->db->insert('story', $data);

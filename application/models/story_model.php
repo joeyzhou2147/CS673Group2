@@ -70,4 +70,7 @@ class Story_model  extends CI_Model
             return false;
         }
     }
+    function delete_by_story_id($story_id){
+        return  $this->db->delete('story', array('story_id' => $story_id));
+    }
 }
