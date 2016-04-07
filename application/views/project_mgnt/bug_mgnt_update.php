@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div class="container">
-    <h2>Enter New Bug</h2>
+    <h2>Update Bug Entry</h2>
     <form class="form-horizontal" role="form" action="/cs673group2/index.php/bug/data_update" method="post">
 	
 	
