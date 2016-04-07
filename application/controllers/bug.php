@@ -105,25 +105,33 @@ class Bug extends CI_Controller {
 	
 	 public function data_update()
     {
-       
-        $container = array();
-        $bBugId = $this->input->post('updateBugId');
-        $bProjectId = $this->input->post('updateBugProjectId');
-        $bDescription = $this->input->post('updateBugDescription');
-        $bassignedTo = $this->input->post('updateBugOwner');
-        $bSeverity = $this->input->post('updateBugSeverity');
-        $bStatus = $this->input->post('updateBugStatus');
-        $bDueDate = $this->input->post('updateBugDueDate');
-         
-        if($this->bug_model->updateBug( $bBugId,$bProjectId, $bDescription, $bassignedTo,
-            $bSeverity,$bStatus,$bDueDate)){
-            $container['message'] = 'You successfully added this bug ';
-        }else{
-            $container['message'] = 'Bugg  add failed';
+        if($this->input->post('updateBugId')){
+            $bugs = array();
+            $bBugId = $this->input->post('updateBugId');
+            $bProjectId = $this->input->post('updateBugProjectId');
+            $bDescription = $this->input->post('updateBugDescription');
+            $bassignedTo = $this->input->post('updateBugOwner');
+            $bSeverity = $this->input->post('updateBugSeverity');
+            $bStatus = $this->input->post('updateBugStatus');
+            $bDueDate = $this->input->post('updateBugDueDate');
+
+            if($this->bug_model->updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
+                $bSeverity,$bStatus,$bDueDate)){
+                $bugs['message'] = 'You successfully updated this bug ';
+            }else{
+                $bugs['message'] = 'Bugg updated failed';
+            }
         }
 
-      //  $this->load->view('project_mgnt/bug_mgnt', $container);
-        $this->index();
+        $bugs['bugindex'] = $this->bug_model->get();
+
+        // $data['page'] = 'userview3';
+        //   $this->load->view('template',$data);
+        /* $this->load->view('userview1',$users);*/
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+
+        $this->load->view('project_mgnt/bug_mgnt',$bugs);
     }
 
 }
