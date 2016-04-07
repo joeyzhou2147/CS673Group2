@@ -28,7 +28,7 @@
 
             <th>user_id</th>
             <th>username</th>
-            <th>project_id</th>
+            <th style="display: none">project_id</th>
             <th>first_name</th>
             <th>last_name</th>
             <th>register_date</th>
