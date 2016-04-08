@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <option value="Gilbert">Gilbert</option>
                         <option value="Terry">Terry</option>
                         <option value="Joe">Joe</option>
-                        <option value="Haan">Haan</option>
+                        <option value="Han">Han</option>
                     </select>
                 </div>
             </div>
@@ -81,9 +81,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-sm-10">
                     <select class="form-control" id="updateBugSeverity" name="updateBugSeverity" placeholder="Enter Bug Severity">
 					   <option value="<?php echo $bugindex[0]->bug_severity ?>"><?php echo $bugindex[0]->bug_severity; ?></option>
+						<option value="Critical">Critical</option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Low">Low</option>
+						<option value="Enhancement">Enhancement</option>
                     </select>
                 </div>
             </div>
@@ -95,7 +97,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  <option value="<?php echo $bugindex[0]->bug_status ?>"><?php echo $bugindex[0]->bug_status; ?></option>
                         <option value="Open">Open</option>
                         <option value="Pending">Pending</option>
-                        <option value="Close">Close</option>
+						<option value="In Progress">In progress</option>
+						<option value="Rejected">Rejected</option>
+                        <option value="Closed">Closed</option>
                     </select>
                 </div>
             </div>
