@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <option value="Gilbert">Gilbert</option>
                         <option value="Terry">Terry</option>
                         <option value="Joe">Joe</option>
-                        <option value="Haan">Haan</option>
+                        <option value="Han">Han</option>
                     </select>
                 </div>
             </div>
@@ -67,6 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <label class="control-label col-sm-2" for="text">Bug Severity to:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="addBugSeverity" name="addBugSeverity" placeholder="Enter Bug Severity">
+						<option value="Critical">Critical</option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Low">Low</option>
@@ -80,7 +81,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <select class="form-control" id="addBugStatus" name="addBugStatus" placeholder="Enter Bug Status">
                         <option value="Open">Open</option>
                         <option value="Pending">Pending</option>
-                        <option value="Close">Close</option>
+                        <option value="Close">Closed</option>
+						<option value="Rejected">Rejected</option>
+						<option value="Duplicate">Duplicate</option>
                     </select>
                 </div>
             </div>

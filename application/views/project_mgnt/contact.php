@@ -15,34 +15,30 @@
 
   <div class="list-group" style="margin-top: 40px;">
     <a href="#" class="list-group-item active">
-      <h4 class="list-group-item-heading">List of our team</h4>
-      <p class="list-group-item-text">Please, contact us for your question.</p>
+      <h4 class="list-group-item-heading">BU Patriots Team</h4>
+      <p class="list-group-item-text">Please fee free to contact us with your questions.</p>
     </a>
     <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Gilbert (Gilbert Kimetto)</h4>
+      <h4 class="list-group-item-heading">Gilbert Kimetto Project Manager/Front End</h4>
       <p class="list-group-item-text">Email: gilbert@bupatriots.com</p>
     </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Han (Xiangchao Huang)</h4>
-      <p class="list-group-item-text">Email: han@bupatriots.com</p>
-    </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Joe (Dongtai Du)</h4>
-      <p class="list-group-item-text">Email: joe@bupatriots.com</p>
-    </a>
-    <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Kali (Kaliappan Janardhanan)</h4>
+	<a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Kaliappan Janardhanan Architect/Backend Developer</h4>
       <p class="list-group-item-text">Email:  kali@bupatriots.com</p>
     </a>
     <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Terry (Jeonggeun Kang)</h4>
-      <p class="list-group-item-text">Email: gilbert@bupatriots.com</p>
+      <h4 class="list-group-item-heading">Joe Dongtai Du Back End Developer/Release Engineer</h4>
+      <p class="list-group-item-text">Email: joe@bupatriots.com</p>
+    </a>    
+	<a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">Han Xiangchao Huang Database Admin/Test </h4>
+      <p class="list-group-item-text">Email: han@bupatriots.com</p>
     </a>
     <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">Email: terry@bupatriots.com</h4>
+      <h4 class="list-group-item-heading">Terry Jeonggeun Kang</h4>
       <p class="list-group-item-text">Email: gilbert@bupatriots.com</p>
     </a>
-
+    
   </div>
 
   

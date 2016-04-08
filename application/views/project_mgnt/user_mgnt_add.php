@@ -62,7 +62,11 @@
 
 
                     <option value="Admin">Admin</option>
-                    <option value="GroupMember">GroupMember</option>
+                    <option value="Product">Product</option>
+					<option value="Business Lead">Business Lead</option>
+					<option value="Developer">Developer</option>
+					<option value="Tester">Tester</option>
+					<option value="Documentation">Documentation</option>
                     <option value="Visitor">Visitor</option>
                 </select>
             </div>
