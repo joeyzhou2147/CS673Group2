@@ -33,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Id:</label>
             <div class="col-sm-10">
-			 <input class="form-control col-sm-2" for="text" id="updateBugId" name="updateBugId" value=<?php echo $bugindex[0]->bug_id; ?> disabled>           
+                <input class="form-control col-sm-2" for="text" id="updateBugIdShow" name="updateBugIdShow" value="<?php echo $bugindex[0]->bug_id; ?>" disabled>
+                <input class="form-control col-sm-2" for="text" id="updateBugId" name="updateBugId" value="<?php echo $bugindex[0]->bug_id; ?>" style="display: none">
             </div>
         </div>
 		
@@ -58,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Description:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="updateBugDescription" name="updateBugDescription" value=<?php echo $bugindex[0]->bug_description; ?>>
+                <textarea style="resize: none;" type="text" class="form-control" id="updateBugDescription" name="updateBugDescription" value=""><?php echo $bugindex[0]->bug_description; ?></textarea>
             </div>
         </div>
 

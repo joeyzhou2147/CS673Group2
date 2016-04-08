@@ -83,7 +83,6 @@ class Bug_model extends CI_Model
 function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
                         $bSeverity,$bStatus,$bDueDate)
     {
-		    $this->load->database();
         $dataArray = array(
              'project_id' => $bProjectId, // column id is auto incremental
             'bug_description' => $bDescription,
@@ -97,9 +96,6 @@ function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
 		//alert($bBugId);
         $this->db->where('bug_id', $bBugId);
 		$this->db->update('bug', $dataArray);
-		
-		 
-       
     }
     public function updateLastLoginTime($email)
     {
