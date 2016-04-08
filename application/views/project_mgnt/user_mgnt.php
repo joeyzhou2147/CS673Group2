@@ -21,7 +21,7 @@
 
 <div class="container">
     <h2>User Lists</h2>
-    <p>All of your projects are here and you can add or subtract the lists</p>
+    <p>Configure your user and group Settings here</p>
     <table class="table table-hover">
         <thead>
         <tr>

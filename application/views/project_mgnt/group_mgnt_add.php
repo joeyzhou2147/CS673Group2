@@ -18,7 +18,7 @@
     <h2>Add New Group</h2>
     <form class="form-horizontal" role="form" action="/cs673group2/index.php/group/add_group" method="post">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Grioup Name:</label>
+            <label class="control-label col-sm-2" for="text">Group Name:</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="addGroupName" name="addGroupName" placeholder="Enter Group Name">
             </div>

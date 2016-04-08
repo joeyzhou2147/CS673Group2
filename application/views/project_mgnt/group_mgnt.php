@@ -21,7 +21,7 @@
 
 <div class="container">
     <h2>Group Lists</h2>
-    <p>All of your projects are here and you can add or subtract the lists</p>
+    <p>You can manage the groups your users belong to here</p>
     <table class="table table-hover">
         <thead>
         <tr>

@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        </div>
 
        <div class="form-group">
-         <label class="control-label col-sm-2" for="text">story owner:</label>
+         <label class="control-label col-sm-2" for="text">Story Owner:</label>
          <div class="col-sm-10">
            <select class="form-control" id="addStoryUser" name="addStoryUser" placeholder="Enter Story owner">
 
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        </div>
 
        <div class="form-group">
-         <label class="control-label col-sm-2" for="text">story status:</label>
+         <label class="control-label col-sm-2" for="text">Story status:</label>
          <div class="col-sm-10">
            <select class="form-control" id="addStoryStatus" name="addStoryStatus" placeholder="Enter project Id">>
 

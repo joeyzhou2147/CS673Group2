@@ -16,7 +16,7 @@
 	
   <body>
   
-  <div class="alert alert-warning" role="alert"><b>PROJECT DELIVERABLE STATUs: </b>	 
+  <div class="alert alert-warning" role="alert"><b>PROJECT DELIVERABLE STATUS: </b>	 
 	 <button type="button" class="btn btn-default btn-sm">
     	 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
      </button>

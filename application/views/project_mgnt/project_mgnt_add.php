@@ -70,6 +70,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  <select class="form-control" id="addProjectStatus" name="addProjectStatus" placeholder="Enter Project Status">
                      <option value="Open">Open</option>
                      <option value="Pending">Pending</option>
+					 <option value="In Progress">In Progress</option>
+					 <option value="Requirements">Requirements</option>
+					 <option value="Analysis">Analysis</option>
+					 <option value="Development">Development</option>
+					 <option value="Testing">Testing</option>
+					 <option value="Complete">Complete</option>
                      <option value="Close">Close</option>
                  </select>
              </div>
