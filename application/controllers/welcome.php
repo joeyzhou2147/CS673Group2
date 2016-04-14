@@ -40,6 +40,8 @@ class Welcome extends CI_Controller {
                     $this->session->set_userdata('username', $email);
                     //$this->User_model->updateLastLoginTime($email);
                     //
+                    $this->load->view('project_mgnt/top_page.php');
+                    $this->load->view('project_mgnt/menu_page.php');
                     $this->load->view('landing', $container);
                 } else {
                     //echo $container['password'];
@@ -61,6 +63,8 @@ class Welcome extends CI_Controller {
     }
     public function landing()
     {
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('landing');
     }
     public function about()
