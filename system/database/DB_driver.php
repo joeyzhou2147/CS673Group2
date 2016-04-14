@@ -19,7 +19,7 @@
 /**
  * Database Driver Class
  *
- * This is the platform-independent base DB implementation class.
+ * This is the platform-independent base DB implementation cflass.
  * This class will not be called directly. Rather, the adapter
  * class for the specific database will extend and instantiate it.
  *
