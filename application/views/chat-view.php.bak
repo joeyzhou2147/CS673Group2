@@ -15,7 +15,7 @@
     var sendChat = function (message, cb) {
 
 
-      $.getJSON("chat/insert_chat?message=" + message, function (data){
+      $.getJSON("insert_chat?message=" + message, function (data){
         cb();
       });
     }
@@ -29,7 +29,7 @@
     var getNewChats = function () {
 		
 
-      $.getJSON("chat/get_chats?time=" + time, function (data){
+      $.getJSON("./get_chats?time=" + time, function (data){
         addDataToReceived(data);
         // reset scroll height
         setTimeout(function(){
@@ -60,7 +60,7 @@
   </script>
 </head>
 <body>
-  <h1> Group Chat window </h1>
+  <h1> Chat Example on Codeigniter </h1>
   
   <textarea id="received" rows="10" cols="50">
   </textarea>

@@ -1,9 +1,18 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Created by PhpStorm.
+ * User: Joe
+ * Date: 2016/3/15
+ * Time: 18:45
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-	<link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/project_mgnt.css">
+      <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 	
     <title>Navigation Menu bar</title>
     
@@ -14,12 +23,12 @@
   <body>
 
   <nav id="nav_hor">
-    <a href="<?php echo base_url("index.php/welcome/home"); ?>" target="main_page">Home</a> |
-    <a href="<?php echo base_url("index.php/project"); ?>" target="main_page">Project Management</a> |
-    <a href="./project_mgnt/project_mgnt_add.php" target="main_page">Project Add</a> |
-    <a href="<?php echo base_url("index.php/story"); ?>" target="main_page">Stories</a> |
-	<a href="./about.php" target="main_page">About</a> |
-	<a href="./contact.php" target="main_page">Contact</a>
+    <a href="/cs673group2/index.php/welcome/home">Home</a> |
+    <a href="/cs673group2/index.php/project">Project Management</a> |
+    <a href="/cs673group2/index.php/project/project_mgnt_add">Project Add</a> |
+   
+	<a href="/cs673group2/index.php/welcome/about">About</a> |
+	<a href="/cs673group2/index.php/welcome/contact">Contact</a>
    </nav>
 
    

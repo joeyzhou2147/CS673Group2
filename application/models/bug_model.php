@@ -52,77 +52,55 @@ class Bug_model extends CI_Model
         return $Counts;
     }
 
-    /*
-     * useless function
-     * */
-    public function getUserNameById($id)
+
+    function addProject($bProjectId, $bDescription, $bassignedTo,
+                        $bSeverity,$bStatus,$bDueDate)
     {
-        $sql = 'SELECT user_name FROM user where user_id = ?';
-        $query = $this->db->query($sql, array($id));
-        $row = $query->row();
-        return $row->user_name;
-    }
+        $dataArray = array(
+             'project_id' => $bProjectId, // column id is auto incremental
+            'bug_description' => $bDescription,
+            'bug_assigned_to' => $bassignedTo,
+            'bug_severity' => $bSeverity,
+            'bug_status' => $bStatus,
+            'bug_due_date' => $bDueDate,
 
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
 
-    public function getIdByEmail($email)
-    {
-        $sql = 'SELECT user_id FROM user where email = ?';
-        $query = $this->db->query($sql, array($email));
-        $idArray = $query->row_array();
-        return $idArray['user_id'];
-    }
-
-    public function validUqEmailByString($email)
-    {
-        $sql = 'SELECT email FROM user where email = ?';
-        $query = $this->db->query($sql, array($email));
-        $rowNum = $query->num_rows();
-        return ($rowNum < 1 ? true : false);
-    }
-
-    public function validLoginByEmail($email)
-    {
-        $sql = 'SELECT email FROM user where email = ?';
-        $query = $this->db->query($sql, array($email));
-        $rowNum = $query->num_rows();
-        return $rowNum > 0;
-    }
-
-    public function validLoginPwByEmail($password, $email)
-    {
-        $passwordSql = 'SELECT password FROM user where email = ?';
-        $passwordQuery = $this->db->query($passwordSql, array($email));
-        $password = hash('md5', $password);
-        $saltQuery = $this->db->query('SELECT salt FROM user where email = ?', array($email));
-        $saltArray = $saltQuery->row_array();
-        $salt = $saltArray['salt'];
-        $generatePassword = hash('md5', $password . $salt);
-        if ($passwordQuery->num_rows() > 0) {
-
-            $passwordArray = $passwordQuery->row_array();
-            if ($passwordArray['password'] != $generatePassword) return false;
-
+        if ($this->db->insert('bug', $dataArray)) {
+//            return array(
+//                'project_id' => $this->getIdByName($pName),
+//                'project_name' => $pName);
+            return true;
         } else {
             return false;
         }
-
-        return true;
     }
-
     /*
-     * TODO duplicate? this function seems to be useless. --Joe(YuZhou)
+     * useless function
      * */
-    public function validPasswordByUserName($password, $email)
+
+function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
+                        $bSeverity,$bStatus,$bDueDate)
     {
-        $this->db->where('email', $email);
-        $query = $this->db->get('user');
-        $user = $query->row_array();
-        $password = hash('md5', $password);
-        $generatePassword = hash('md5', $password . $user['salt']);
-        return strcmp($user['password'], $generatePassword) == 0;
+		    $this->load->database();
+        $dataArray = array(
+             'project_id' => $bProjectId, // column id is auto incremental
+            'bug_description' => $bDescription,
+            'bug_assigned_to' => $bassignedTo,
+            'bug_severity' => $bSeverity,
+            'bug_status' => $bStatus,
+            'bug_due_date' => $bDueDate,
+
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
+		//alert($bBugId);
+        $this->db->where('bug_id', $bBugId);
+		$this->db->update('bug', $dataArray);
+		
+		 
+       
     }
-
-
     public function updateLastLoginTime($email)
     {
         if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -149,4 +127,25 @@ class Bug_model extends CI_Model
         }
         return $result;
     }
+	public function getBugByBugId($bugId)
+	{
+		  
+		  //$this->db->select('user_id, username, password')->from('user');
+		    $this->db->where('bug_id', $bugId)->from('bug');
+			return $this->db->get()->result();
+	}
+
+    public function getAllWithStoryDetail()
+    {
+       // $this->db->select('bug.bug_id','bug.bug_description','bug.bug_assigned_to','bug.bug_severity','bug.bug_status','bug.bug_due_date');
+        $this->db->select('*');
+        $this->db ->from('bug');
+        $this->db ->join('story', 'bug.story_id=story.story_id', 'inner');
+        $this->db->join('project', 'story.project_id = project.project_id','inner');
+
+
+        return    $this->db ->get()->result();
+
+    }
+	
 }

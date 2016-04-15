@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <link href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>" rel="stylesheet" type="text/css" />
-      <link href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
       <title>Story Management</title>
     
@@ -25,12 +25,12 @@
     <thead>
       <tr>
 
-          <th>story_id</th>
-          <th>project_id</th>
-          <th>story_owner</th>
-          <th>story_description</th>
-          <th>story_last_update_time</th>
-          <th>story_status</th>
+          <th>Story Id</th>
+
+          <th>Owner</th>
+          <th>Description</th>
+          <th>Last Updated</th>
+          <th>Status</th>
 
       </tr>
     </thead>
@@ -42,9 +42,7 @@
             <td>
                 <?php echo $stories -> story_id;?>
             </td>
-            <td>
-                <?php echo $stories ->project_id ;?>
-            </td>
+           
             <td>
                 <?php echo $stories -> story_owner;?>
             </td>
@@ -73,16 +71,13 @@
             onclick="location.href='<?php echo site_url('index.php/story/data_in');?>'">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-      <script>
-          function onInsertStory()
-          {
-              <?php echo base_url('index.php/story/data_in'); ?>
-          }
-      </script>
     <button type="button" class="btn btn-default btn-lg">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
   </div>
+    <div>
+        <p align="center" style="color:red;"><?php if(isset($message)){echo $message;}?></p>
+    </div>
 
 </div>
 
