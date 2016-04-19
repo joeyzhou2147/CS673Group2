@@ -59,7 +59,7 @@ class Bug extends CI_Controller {
 
         $container = array();
 
-        $bProjectId = $this->input->post('addBugProjectId');
+        $bProjectId = $this->input->post('addBugStoryId');
         $bDescription = $this->input->post('addBugDescription');
         $bassignedTo = $this->input->post('addBugOwner');
         $bSeverity = $this->input->post('addBugSeverity');
@@ -80,8 +80,9 @@ class Bug extends CI_Controller {
     public function add_bug()
     {
         $container['projectindex'] = $this->project_model->get();
-        $container['storyindex']=$this->story_model->get();
-       // $container = array();
+        $container['storyindex']=$this->bug_model->getAllWithStoryDetail();
+
+        // $container = array();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/bug_mgnt_add', $container);
@@ -91,7 +92,7 @@ class Bug extends CI_Controller {
 	public function data_in_update()
 	{
 		 
-		  $container['projectindex'] = $this->project_model->get();
+		  $container['projectindex'] = $this->bug_model->getAllWithStoryDetail();
 		  if($this->input->get('projectId'))
 		 {
 			 $container['bugindex'] = $this->bug_model->getBugByBugId($this->input->get('projectId'));      

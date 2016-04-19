@@ -6,6 +6,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 2016/3/15
  * Time: 18:45
  */
+ 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +18,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
     <title>Bug Management</title>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
  <script type="text/javascript" language="JavaScript">
           var xmlhttp;
+          function getdateDiff(dbDate)
+		  {
+			  var date1 = new Date();
+ 
+				// GET YYYY, MM AND DD FROM THE DATE OBJECT
+				//var yyyy = date.getFullYear().toString();
+				//var mm = (date.getMonth()+1).toString();
+				//var dd  = date.getDate().toString();
+				 
+				// CONVERT mm AND dd INTO chars
+				//var mmChars = mm.split('');
+				//var ddChars = dd.split('');
+				 
+				// CONCAT THE STRINGS IN YYYY-MM-DD FORMAT
+				//var datestring = yyyy + '-' + (mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]);
+				//var date1 = new Date("1/13/2016");
+				var date2 = new Date(dbDate);
+				var timeDiff = Math.abs(date1.getTime() - date2.getTime());
+				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+	           document.write(""+diffDays);
+			 //document.write(dbDate);
 
+		  }
           function updateBug(projectId){
               url = "/cs673group2/index.php/bug/data_in_update"+projectId;
               xmlhttp=null;
@@ -43,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
 		  </script>
     <!--[if IE]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    
     <![endif]-->
 
 </head>
@@ -61,15 +87,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <thead>
         <tr>
 
-            <th>story_description</th>
-            <th>project_id</th>
-            <th>bug_description</th>
-            <th>bug_assigned_to</th>
-            <th>bug_severity</th>
-            <th>bug_status</th>
-            <th>bug_due_date</th>
-            <th>bug_complete_date</th>
-            <th>days_open</th>
+            <th>Story description</th>
+            <th>Project Name</th>
+            <th>Bug Description</th>
+            <th>Owner</th>
+            <th>Severity</th>
+            <th>Status</th>
+            <th>Due Date</th>           
+            <th>Days open</th>
             <th>update</th>
 
 
@@ -104,12 +129,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php echo $bugs -> bug_due_date;?>
                 </td>
 
+
                 <td>
-                    <?php echo $bugs -> bug_complete_date;?>
+						<SCRIPT type="text/javascript">{{getdateDiff('<?php echo $bugs->bug_found_date ;?>');}}</SCRIPT>
                 </td>
-                <td>
-                    <?php echo "12";?>
-                </td>
+				
                    <td onclick="updateBug('<?php echo $bugs->bug_id ;?>')" style="cursor: pointer;"
 					<a href="#">
 							  <img src="/cs673group2/assets/images/available_updates.png" height="18" width="18" />

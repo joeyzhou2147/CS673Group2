@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Project Name:</label>
          <div class="col-sm-10">
-           <input type="text" class="form-control" id="addProjectName" name="addProjectName" placeholder="Enter Project Name" size="512">
+           <input type="text" class="form-control" id="addProjectName" name="addProjectName" placeholder="Enter Project Name: (100 chars Max)" maxlength = "100" size="512">
          </div>
        </div>
 	   

@@ -57,7 +57,7 @@ class Bug_model extends CI_Model
                         $bSeverity,$bStatus,$bDueDate)
     {
         $dataArray = array(
-             'project_id' => $bProjectId, // column id is auto incremental
+             'story_id' => $bProjectId, // column id is auto incremental
             'bug_description' => $bDescription,
             'bug_assigned_to' => $bassignedTo,
             'bug_severity' => $bSeverity,
@@ -85,7 +85,7 @@ function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
     {
 		    $this->load->database();
         $dataArray = array(
-             'project_id' => $bProjectId, // column id is auto incremental
+             'story_id' => $bProjectId, // column id is auto incremental
             'bug_description' => $bDescription,
             'bug_assigned_to' => $bassignedTo,
             'bug_severity' => $bSeverity,

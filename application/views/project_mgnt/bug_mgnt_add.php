@@ -28,15 +28,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <form class="form-horizontal" role="form" action="/cs673group2/index.php/bug/data_in" method="post">
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Project Id:</label>
+            <label class="control-label col-sm-2" for="text">Story Name:</label>
             <div class="col-sm-10">
 
-                <select class="form-control" id="addBugProjectId" name="addBugProjectId" placeholder="Enter Bug owner">
+                <select class="form-control" id="addBugStoryId" name="addBugStoryId" placeholder="Enter Bug owner">
                     <?php
                      // Iterating through the product array
-                    foreach($projectindex as $row){
+                    foreach($storyindex as $row){
                         ?>
-                        <option value="<?php echo $row->project_id ?>"><?php echo $row->project_name; ?></option>
+                        <option value="<?php echo $row->story_id ?>"><?php echo $row->story_description; ?></option>
                         <?php
                     }
                     ?>
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Description:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="addBugDescription" name="addBugDescription" placeholder="Enter Bug Description" size="512">
+                <input type="text" class="form-control" id="addBugDescription" name="addBugDescription" placeholder="Enter Bug Description ( Max 512)" maxlength="512" size="512">
             </div>
         </div>
 
