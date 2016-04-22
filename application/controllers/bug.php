@@ -80,7 +80,7 @@ class Bug extends CI_Controller {
     public function add_bug()
     {
         $container['projectindex'] = $this->project_model->get();
-        $container['storyindex']=$this->bug_model->getAllWithStoryDetail();
+        $container['storyindex']=$this->story_model->get();
 
         // $container = array();
         $this->load->view('project_mgnt/top_page.php');

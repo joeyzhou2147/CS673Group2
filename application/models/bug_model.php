@@ -142,8 +142,9 @@ function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
         $this->db ->from('bug');
         $this->db ->join('story', 'bug.story_id=story.story_id', 'inner');
         $this->db->join('project', 'story.project_id = project.project_id','inner');
-
-
+     //   $rowcount =  $this->db ->get()->num_rows();
+       // log_message('debug', 'KJ bug Some variable was correctly set');
+       // log_message('debug',$rowcount);
         return    $this->db ->get()->result();
 
     }
