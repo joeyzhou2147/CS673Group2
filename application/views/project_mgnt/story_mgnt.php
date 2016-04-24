@@ -11,8 +11,8 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  </head>
-
+	
+	 <script type="text/javascript" language="JavaScript">
 function storyUpdate(storyId){
               url = "/cs673group2/index.php/story/updateStoryDataIn"+storyId;
               xmlhttp=null;
@@ -36,7 +36,9 @@ function storyUpdate(storyId){
                   alert("Your browser does not support XMLHTTP.");
               }
           }  
-  
+  </script>
+  </head>
+
   <body>
 
   
