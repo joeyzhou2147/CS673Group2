@@ -12,7 +12,30 @@
     <![endif]-->
 
   </head>
-  
+
+function storyUpdate(storyId){
+              url = "/cs673group2/index.php/story/updateStoryDataIn"+storyId;
+              xmlhttp=null;
+              if (window.XMLHttpRequest)
+              {// code for IE7, Firefox, Mozilla, etc.
+                  xmlhttp=new XMLHttpRequest();
+              }
+              else if (window.ActiveXObject)
+              {// code for IE5, IE6
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              if (xmlhttp!=null)
+              {
+                  window.location.href="/cs673group2/index.php/story/updateStoryDataIn?storyId="+storyId;
+                  xmlhttp.onreadystatechange=onResponse(projectId);
+                  xmlhttp.open("GET",url,true);
+                  xmlhttp.send(null);
+              }
+              else
+              {
+                  alert("Your browser does not support XMLHTTP.");
+              }
+          }  
   
   <body>
 
@@ -31,6 +54,7 @@
           <th>Description</th>
           <th>Last Updated</th>
           <th>Status</th>
+		  <th>Update</th>
 
       </tr>
     </thead>
@@ -55,6 +79,11 @@
             <td>
                 <?php echo $stories -> story_status;?>
             </td>
+			<td onclick="storyUpdate('<?php echo $stories->story_id ;?>')" style="cursor: pointer;">
+                      <a href="#">
+                          <img src="/cs673group2/assets/images/available_updates.png" height="18" width="18" />
+                      </a>
+                  </td>
         </tr>
     <?php  }?>
     </tbody>
