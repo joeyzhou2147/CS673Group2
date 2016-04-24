@@ -1,22 +1,23 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Project extends CI_Controller {
+class Project extends CI_Controller
+{
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     *        http://example.com/index.php/welcome
+     *    - or -
+     *        http://example.com/index.php/welcome/index
+     *    - or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see http://codeigniter.com/user_guide/general/urls.html
+     */
     function __construct()
     {
         parent::__construct();
@@ -32,41 +33,43 @@ class Project extends CI_Controller {
         $this->load->model('project_model');
         $this->load->model('group_model');
     }
+
     function index()
     {
 
         $projects['projectindex'] = $this->project_model->get();
 
-       // $data['page'] = 'userview3';
-     //   $this->load->view('template',$data);
+        // $data['page'] = 'userview3';
+        //   $this->load->view('template',$data);
         /* $this->load->view('userview1',$users);*/
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/project_mgnt',$projects);
-      //  $this->load->view('project_mgnt/bottom_page.php');
+        $this->load->view('project_mgnt/project_mgnt', $projects);
+        //  $this->load->view('project_mgnt/bottom_page.php');
     }
 
     public function delete()
     {
-        if($this->input->get('projectId')){
-            if($this->project_model->delete_by_project_id($this->input->get('projectId'))){
-                $projects['message'] = 'Successfully delete project "'.$this->input->get('projectId').'".';
-            }else{
-                $projects['message'] = 'Delete project "'.$this->input->get('projectId').'" failed.';
+        if ($this->input->get('projectId')) {
+            if ($this->project_model->delete_by_project_id($this->input->get('projectId'))) {
+                $container['message'] = 'Successfully delete project "' . $this->input->get('projectId') . '".';
+            } else {
+                $container['message'] = 'Delete project "' . $this->input->get('projectId') . '" failed.';
             }
         }
-        $projects['projectindex'] = $this->project_model->get();
+        $container['projectindex'] = $this->project_model->get();
 
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/project_mgnt',$projects);
+        $this->load->view('project_mgnt/project_mgnt', $container);
     }
 
-    function project_mgnt_add(){
+    function project_mgnt_add()
+    {
         //$container = array();
-        $container['groupIndex']=  $this->group_model->get();
+        $container['groupIndex'] = $this->group_model->get();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/project_mgnt_add', $container);
@@ -83,10 +86,10 @@ class Project extends CI_Controller {
         $pStartDate = $this->input->post('addProjectStartDate');
         $pStatus = $this->input->post('addProjectStatus');
 
-        if($this->project_model->addProject($pName, $pGroupId, $pLength,$pStartDate,$pStatus)){
-            $container['message'] = 'You successfully add this project "'.$pName.'"!';
-        }else{
-            $container['message'] = 'Project "'.$pName.'" add failed';
+        if ($this->project_model->addProject($pName, $pGroupId, $pLength, $pStartDate, $pStatus)) {
+            $container['message'] = 'You successfully add this project "' . $pName . '"!';
+        } else {
+            $container['message'] = 'Project "' . $pName . '" add failed';
         }
 
         $this->index();
@@ -95,6 +98,7 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/project_mgnt_add', $container);*/
     }
+
     function data_in_backup()
     {
         //get the last story id
@@ -102,12 +106,12 @@ class Project extends CI_Controller {
         $data['storyid'] = '3005';
         //get all the project ids
         //$project['projectindex']= $this->project_model->get_all_project_id();
-        $data['projectindex'] = array('5000','5001','50002');
+        $data['projectindex'] = array('5000', '5001', '50002');
         //getall user names from user table
-        $data['owners'] = array('kali','gilbert','terry','han','joe');
+        $data['owners'] = array('kali', 'gilbert', 'terry', 'han', 'joe');
         // $data['page'] = 'project_mgnt_add_story';
 
-        $data['status']  = array('pending','open','completed');
+        $data['status'] = array('pending', 'open', 'completed');
         //$this->load->view('template', $data);
 
         $this->load->view('project_mgnt/top_page.php');
@@ -121,8 +125,8 @@ class Project extends CI_Controller {
     {
         $stories['storyindex'] = $this->story_model->get();
 
-        $id=$this->input->post('id');
-        $idescription=$this->input->post('description');
+        $id = $this->input->post('id');
+        $idescription = $this->input->post('description');
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
@@ -141,23 +145,24 @@ class Project extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('insert_view');
         } else {
-                    //Setting values for tabel columns
-        /*    $data = array(
-                'Student_Name' => $this->input->post('dname'),
-                'Student_Email' => $this->input->post('demail'),
-                'Student_Mobile' => $this->input->post('dmobile'),
-                'Student_Address' => $this->input->post('daddress'),
-                 'projectids' => $project['projectindex'],
-                'storid' => $storyid,
-            );
-            //Transfering data to Model
-            $this->insert_model->form_insert($data);
-            $data['message'] = 'Data Inserted Successfully';
-            //Loading View
-            $this->load->view('insert_view', $data);*/
+            //Setting values for tabel columns
+            /*    $data = array(
+                    'Student_Name' => $this->input->post('dname'),
+                    'Student_Email' => $this->input->post('demail'),
+                    'Student_Mobile' => $this->input->post('dmobile'),
+                    'Student_Address' => $this->input->post('daddress'),
+                     'projectids' => $project['projectindex'],
+                    'storid' => $storyid,
+                );
+                //Transfering data to Model
+                $this->insert_model->form_insert($data);
+                $data['message'] = 'Data Inserted Successfully';
+                //Loading View
+                $this->load->view('insert_view', $data);*/
         }
 
     }
+
     function getstory_in_project($projectid)
     {
         $stories['storyindex'] = $this->story_model->get_by_project_id($projectid);
@@ -167,26 +172,49 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/story_mgnt',$stories);
+        $this->load->view('project_mgnt/story_mgnt', $stories);
 
     }
+
     function updateProjectDataIn()
     {
-       $container['groupindex']=  $this->group_model->get();
-       
+        $container['groupindex'] = $this->group_model->get();
+
         $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
-         
-     
+
+
         // $container = array();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/project_mgnt_update', $container);
-    
+
     }
-     function updateProjectData()
-     {
-         $this->index();    
-     }
+
+    function updateProjectData()
+    {
+        $bProjectId = $this->input->get('updateProjectId');
+        $pName = $this->input->get('updateProjectName');
+        $pGroupId = $this->input->get('updateProjectGroupId');
+        $pLength = $this->input->get('updateProjectLength');
+        $pStartDate = $this->input->get('updateProjectStartDate');
+        $pEndDate = $this->input->get('updateProjectEndtDate');
+        $pStatus = $this->input->get('updateProjectStatus');
+
+        //debug
+        //echo phpinfo();dieout();
+        if ($this->project_model->updateProject($bProjectId, $pName, $pGroupId, $pLength, $pStartDate, $pStatus, $pEndDate)) {
+            $container['message'] = "Update successfully!";
+            $this->index();
+        } else {
+            $container['groupindex'] = $this->group_model->get();
+
+            $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
+            $container['message'] = "Update failed, please contact the manager!";
+
+            $this->index();
+
+        }
+    }
 
 }
 

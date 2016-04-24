@@ -75,6 +75,26 @@ class Project_model  extends CI_Model
         }
     }
 
+    function updateProject($bProjectId,$pName, $pGroupId, $pLength,
+                           $pStartDate, $pStatus, $pEndDate)
+    {
+        $this->load->database();
+        $dataArray = array(
+            'project_name' => $pName, // column id is auto incremental
+            'group_id' => $pGroupId,
+            'project_length' => $pLength,
+            'project_start_date' => $pStartDate,
+            'project_end_date' => $pEndDate,
+            'project_status' => $pStatus,
+
+            //'register_date' => date("Y-m-d H:i:s"),
+        );
+        //alert($bBugId);
+        $this->db->where('project_id', $bProjectId);
+        $this->db->update('project', $dataArray);
+
+    }
+
     function getIdByName($pName){
         $sql = 'SELECT project_id FROM user where project_name = ?';
         $query = $this->db->query($sql, array($pName));
