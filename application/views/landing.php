@@ -31,26 +31,26 @@
 
     <!-- owl carousel css -->
 
-    <link href="<?php echo base_url("assets/stylesheets/owl.carousel.css"); ?>" rel="stylesheet">
-    <link href="<?php echo base_url("assets/stylesheets/owl.theme.css"); ?>" rel="stylesheet">
+    <link href="assets/stylesheets/owl.carousel.css" rel="stylesheet">
+    <link href="assets/stylesheets/owl.theme.css" rel="stylesheet">
 
     <!-- CSS Animations -->
-    <link href="<?php echo base_url("assets/stylesheets/animate.css"); ?>" rel="stylesheet">
+    <link href="assets/stylesheets/animate.css" rel="stylesheet">
 
     <!-- Favicon -->
 
 
     <!-- Mordernizr -->
-    <script src="<?php echo base_url("assets/javascripts/modernizr-2.6.2.min.js"); ?>"></script>
+    <script src="assets/javascripts/modernizr-2.6.2.min.js"></script>
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
-    <script src="assets/javascripts/respond.min.js"); ?>"></script>
+    <script src="assets/javascripts/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#navigation" data-offset="120">
 
-<div class = "container" style="margin-top: 40px;">
+<div class = "container">
 
       <div class="section" id="references">
             <div class="container">
@@ -145,7 +145,7 @@
 					<div class="col-md-4">
 						<div class="reference-item" data-category="marketing">
                             <div class="reference">
-                                <a href="<?php echo base_url("index.php/setup"); ?>">
+                                <a href="<?php echo base_url("index.php/user"); ?>">
                                     <img src="<?php echo base_url("assets/images/settings.jpg"); ?>"  class="img-responsive" alt="" />
 
                                     <div class="overlay">

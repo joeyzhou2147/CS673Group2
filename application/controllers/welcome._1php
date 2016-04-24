@@ -18,44 +18,28 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
+    public function index()
+    {
+        $this->load->model('user_model');
+        $users['departments'] = $this->user_model->get();
+
+       /* $this->load->view('userview1',$users);*/
+	   $this->load->view('userview2',$users);
+    }
+
+
+    /**
+     * Constructor
+     */
     function __construct()
     {
         parent::__construct();
-        $this->load->model('User_model');
     }
 
-    // login verified here
-    function index()
-    {
-        $email = $this->input->post('login_email');
-        $password = $this->input->post('login_password');
-        $id = $this->User_model->getIdByEmail($email);
-
-        $container['user_id'] = $id;
-        $container['email'] = $email;
-        $container['password'] = $password;
-        if ($this->User_model->validLoginByEmail($email)) {
-            if ($this->User_model->validLoginPwByEmail($password, $email)) {
-                $this->session->set_userdata('username', $email);
-                //$this->User_model->updateLastLoginTime($email);
-                //
-                $this->load->view('landing', $container);
-            } else {
-                //echo $container['password'];
-                //echo $container['email'];
-                $container['message'] = "login failed, your password is wrong.";
-                $this->load->view('layout/sign_in_header',$container);
-                $this->load->view('sign_in',$container);
-                $this->load->view('layout/sign_in_footer',$container);
-            }
-
-        } else {
-            $container['message'] = "login failed, username doesn't exist.";
-            $this->load->view('layout/sign_in_header',$container);
-            $this->load->view('sign_in',$container);
-            $this->load->view('layout/sign_in_footer',$container);
-        }
-    }
+    public function _output($output)
+	{
+			echo $output;
+	}
     public function landing()
     {
         $this->load->view('landing');
@@ -70,9 +54,7 @@ class Welcome extends CI_Controller {
     }
     public function home()
     {
-        $this->load->view('project_mgnt/top_page.php');
-        $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('landing');
+        $this->load->view('home');
     }
     public function story()
     {

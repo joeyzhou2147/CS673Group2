@@ -40,7 +40,7 @@ class Story extends CI_Controller {
         }
 
         $this->load->view('project_mgnt/top_page.php');
-        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/menu_page_story.php');
 
         $this->load->view('project_mgnt/story_mgnt',$stories);
     }
@@ -65,7 +65,7 @@ class Story extends CI_Controller {
     {
         //get the last story id
        // $storyid = $this->story_model->get_last_story_id();
-        $data['storyid'] = '3005';
+       // $data['storyid'] = '3005';
         //get all the project ids
         //$project['projectindex']= $this->project_model->get_all_project_id();
          $data['projectindex'] = $this->project_model->get();
@@ -78,7 +78,7 @@ class Story extends CI_Controller {
 
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('project_mgnt/project_mgnt_add_story', $data);
+        $this->load->view('project_mgnt/project_mgnt_add_story.php', $data);
 
        // $this->load->view('add_story', $data);
     }

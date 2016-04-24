@@ -43,6 +43,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               }
           }
 
+          function projectUpdate(projectId){
+              url = "/cs673group2/index.php/project/updateProjectDataIn"+projectId;
+              xmlhttp=null;
+              if (window.XMLHttpRequest)
+              {// code for IE7, Firefox, Mozilla, etc.
+                  xmlhttp=new XMLHttpRequest();
+              }
+              else if (window.ActiveXObject)
+              {// code for IE5, IE6
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              if (xmlhttp!=null)
+              {
+                  window.location.href="/cs673group2/index.php/project/updateProjectDataIn?projectId="+projectId;
+                  xmlhttp.onreadystatechange=onResponse(projectId);
+                  xmlhttp.open("GET",url,true);
+                  xmlhttp.send(null);
+              }
+              else
+              {
+                  alert("Your browser does not support XMLHTTP.");
+              }
+          }
+
           function deleteProjectById(projectId){
               url = "/cs673group2/index.php/project/delete?"+projectId;
               xmlhttp=null;
@@ -99,15 +123,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <thead>
           <tr>
 
-              <th>group_id</th>
-              <th>project_id</th>
-              <th>project_name</th>
-              <th>project_length</th>
-              <th>project_start_date</th>
-              <th>project_end_date</th>
-              <th>project_status</th>
+
+              <th>Project Name</th>
+              <th>Duration</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Status</th>
               <th>update</th>
-              <th>delete</th>
+
 
           </tr>
           </thead>
@@ -116,12 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           foreach($projectindex as $projects)
           {?>
               <tr>
-                  <td onclick="showStoryByProjectId('<?php echo $projects->project_id ;?>')" style="cursor: pointer;">
-                      <?php echo $projects -> group_id;?>
-                  </td>
-                  <td onclick="showStoryByProjectId('<?php echo $projects->project_id ;?>')" style="cursor: pointer;">
-                      <?php echo $projects->project_id ;?>
-                  </td>
+                
                   <td onclick="showStoryByProjectId('<?php echo $projects->project_id ;?>')" style="cursor: pointer;">
                       <?php echo $projects -> project_name;?>
                   </td>
@@ -138,16 +156,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <?php echo $projects -> project_status;?>
                   </td>
 
-                  <td>
+                  <td onclick="projectUpdate('<?php echo $projects->project_id ;?>')" style="cursor: pointer;">
                       <a href="#">
                           <img src="/cs673group2/assets/images/available_updates.png" height="18" width="18" />
                       </a>
                   </td>
-                  <td>
-                      <a href="#">
-                          <img src="/cs673group2/assets/images/recycle_bin-512.png"  onclick="deleteProjectById('<?php echo $projects->project_id ;?>')" height="18" width="18"/>
-                          </a>
-                  </td>
+              
               </tr>
           <?php  }?>
           </tbody>

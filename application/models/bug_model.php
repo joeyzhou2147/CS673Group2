@@ -57,7 +57,7 @@ class Bug_model extends CI_Model
                         $bSeverity,$bStatus,$bDueDate)
     {
         $dataArray = array(
-             'project_id' => $bProjectId, // column id is auto incremental
+             'story_id' => $bProjectId, // column id is auto incremental
             'bug_description' => $bDescription,
             'bug_assigned_to' => $bassignedTo,
             'bug_severity' => $bSeverity,
@@ -83,8 +83,9 @@ class Bug_model extends CI_Model
 function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
                         $bSeverity,$bStatus,$bDueDate)
     {
+		    $this->load->database();
         $dataArray = array(
-             'project_id' => $bProjectId, // column id is auto incremental
+             'story_id' => $bProjectId, // column id is auto incremental
             'bug_description' => $bDescription,
             'bug_assigned_to' => $bassignedTo,
             'bug_severity' => $bSeverity,
@@ -96,6 +97,9 @@ function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
 		//alert($bBugId);
         $this->db->where('bug_id', $bBugId);
 		$this->db->update('bug', $dataArray);
+		
+		 
+       
     }
     public function updateLastLoginTime($email)
     {
@@ -130,5 +134,19 @@ function updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
 		    $this->db->where('bug_id', $bugId)->from('bug');
 			return $this->db->get()->result();
 	}
+
+    public function getAllWithStoryDetail()
+    {
+       // $this->db->select('bug.bug_id','bug.bug_description','bug.bug_assigned_to','bug.bug_severity','bug.bug_status','bug.bug_due_date');
+        $this->db->select('*');
+        $this->db ->from('bug');
+        $this->db ->join('story', 'bug.story_id=story.story_id', 'inner');
+        $this->db->join('project', 'story.project_id = project.project_id','inner');
+     //   $rowcount =  $this->db ->get()->num_rows();
+       // log_message('debug', 'KJ bug Some variable was correctly set');
+       // log_message('debug',$rowcount);
+        return    $this->db ->get()->result();
+
+    }
 	
 }

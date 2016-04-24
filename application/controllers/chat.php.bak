@@ -2,29 +2,23 @@
 
 class Chat extends CI_Controller {
   /* The default function that gets called when visiting the page */
-  public function __construct()
-  {
-    parent::__construct();
-    $this->load->helper('date');
-  }
   public function index() 
-  {
-    $this->load->view('project_mgnt/top_page.php');
-    $this->load->view('project_mgnt/menu_page.php');
+  {       
+    
     $this->load->view('chat-view');
   }
   
   public function get_chats() {
     /* Connect to the mySQL database - config values can be found at:
     /application/config/database.php */
-  
+    echo "before load database";
     $dbconnect = $this->load->database();
     
     /* Load the database model:
     /application/models/simple_model.php */
     $this->load->model('Chat_model');
     
-
+	echo "before cdrate";
     /* Create a table if it doesn't exist already */
     $this->Chat_model->create_table();
     

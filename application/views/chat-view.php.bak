@@ -1,8 +1,6 @@
 <html>
 <head>
   <title> Chat Exmaples! </title>
-
-	
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <script>
@@ -17,7 +15,7 @@
     var sendChat = function (message, cb) {
 
 
-      $.getJSON("chat/insert_chat?message=" + message, function (data){
+      $.getJSON("insert_chat?message=" + message, function (data){
         cb();
       });
     }
@@ -31,7 +29,7 @@
     var getNewChats = function () {
 		
 
-      $.getJSON("chat/get_chats?time=" + time, function (data){
+      $.getJSON("./get_chats?time=" + time, function (data){
         addDataToReceived(data);
         // reset scroll height
         setTimeout(function(){
@@ -62,7 +60,7 @@
   </script>
 </head>
 <body>
-  <h1> Group Chat window </h1>
+  <h1> Chat Example on Codeigniter </h1>
   
   <textarea id="received" rows="10" cols="50">
   </textarea>

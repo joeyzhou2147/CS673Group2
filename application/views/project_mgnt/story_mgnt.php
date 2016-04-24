@@ -25,12 +25,12 @@
     <thead>
       <tr>
 
-          <th>story_id</th>
-          <th>project_id</th>
-          <th>story_owner</th>
-          <th>story_description</th>
-          <th>story_last_update_time</th>
-          <th>story_status</th>
+          <th>Story Id</th>
+
+          <th>Owner</th>
+          <th>Description</th>
+          <th>Last Updated</th>
+          <th>Status</th>
 
       </tr>
     </thead>
@@ -42,9 +42,7 @@
             <td>
                 <?php echo $stories -> story_id;?>
             </td>
-            <td>
-                <?php echo $stories ->project_id ;?>
-            </td>
+           
             <td>
                 <?php echo $stories -> story_owner;?>
             </td>

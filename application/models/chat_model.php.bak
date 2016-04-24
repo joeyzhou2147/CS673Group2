@@ -6,7 +6,6 @@ class Chat_model extends CI_Model {
   {
     /* Call the Model constructor */
     parent::__construct();
-    $this->load->helper('date');
   }
 
 
@@ -20,26 +19,9 @@ class Chat_model extends CI_Model {
   
   function insert_message($message)
   {
-    $this->load->helper('date');
-  $this->message = $message;
-   // $this->message_text = $message;
-
-    $datestring = "%Y-%m-%d %h:%i:%s";
-
-    $oTime = time();
-    $this-> time =  mdate($datestring, $oTime);
-  //    $this-> message_time =  mdate($datestring, $oTime);
-   // $cTime =  time();
-  //  $dataArray = array(
-   //     'message' => $message, // column id is auto incremental
-  //      'time' => $cTime,
-
-
-      //'register_date' => date("Y-m-d H:i:s"),
-   // );
-
-    $this->db->insert('chats',$this);
-    //  $this->db->insert('message',$this);
+    $this->message = $message;
+    $this-> time = time();  
+    $this->db->insert('chats', $this);
   }
 
   function get_chat_after($time)

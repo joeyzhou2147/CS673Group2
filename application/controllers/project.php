@@ -170,6 +170,23 @@ class Project extends CI_Controller {
         $this->load->view('project_mgnt/story_mgnt',$stories);
 
     }
+    function updateProjectDataIn()
+    {
+       $container['groupindex']=  $this->group_model->get();
+       
+        $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
+         
+     
+        // $container = array();
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/project_mgnt_update', $container);
+    
+    }
+     function updateProjectData()
+     {
+         $this->index();    
+     }
 
 }
 

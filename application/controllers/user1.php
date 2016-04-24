@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Story extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,36 +17,13 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('form');
-        $this->load->helper('url');
-        $this->load->database();
-
-        // needed when we
-        $this->load->library('form_validation');
-        //load the employee model
-
-        $this->load->model('user_model');
-    }
     public function index()
     {
+        $this->load->model('user_model');
+        $users['departments'] = $this->user_model->get();
 
-        $users['userindex'] = $this->user_model->get();
-
-        // $data['page'] = 'userview3';
-        //   $this->load->view('template',$data);
         /* $this->load->view('userview1',$users);*/
-        $this->load->view('project_mgnt/top_page.php');
-        $this->load->view('project_mgnt/menu_page.php');
-
-        $this->load->view('project_mgnt/user_mgnt',$users);
-
-
-
-
+        $this->load->view('userview2',$users);
     }
     public function landing()
     {

@@ -31,12 +31,15 @@ class Bug extends CI_Controller {
 
         $this->load->model('bug_model');
         $this->load->model('project_model');
+        $this->load->model('story_model');
 
     }
     public function index()
     {
 
-        $bugs['bugindex'] = $this->bug_model->get();
+//        $bugs['bugindex'] = $this->bug_model->get();
+
+        $bugs['bugindex'] = $this->bug_model->getAllWithStoryDetail();
 
        // $data['page'] = 'userview3';
      //   $this->load->view('template',$data);
@@ -56,7 +59,7 @@ class Bug extends CI_Controller {
 
         $container = array();
 
-        $bProjectId = $this->input->post('addBugProjectId');
+        $bProjectId = $this->input->post('addBugStoryId');
         $bDescription = $this->input->post('addBugDescription');
         $bassignedTo = $this->input->post('addBugOwner');
         $bSeverity = $this->input->post('addBugSeverity');
@@ -77,7 +80,9 @@ class Bug extends CI_Controller {
     public function add_bug()
     {
         $container['projectindex'] = $this->project_model->get();
-       // $container = array();
+        $container['storyindex']=$this->story_model->get();
+
+        // $container = array();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/bug_mgnt_add', $container);
@@ -87,7 +92,7 @@ class Bug extends CI_Controller {
 	public function data_in_update()
 	{
 		 
-		  $container['projectindex'] = $this->project_model->get();
+		  $container['projectindex'] = $this->bug_model->getAllWithStoryDetail();
 		  if($this->input->get('projectId'))
 		 {
 			 $container['bugindex'] = $this->bug_model->getBugByBugId($this->input->get('projectId'));      
@@ -105,33 +110,25 @@ class Bug extends CI_Controller {
 	
 	 public function data_update()
     {
-        if($this->input->post('updateBugId')){
-            $bugs = array();
-            $bBugId = $this->input->post('updateBugId');
-            $bProjectId = $this->input->post('updateBugProjectId');
-            $bDescription = $this->input->post('updateBugDescription');
-            $bassignedTo = $this->input->post('updateBugOwner');
-            $bSeverity = $this->input->post('updateBugSeverity');
-            $bStatus = $this->input->post('updateBugStatus');
-            $bDueDate = $this->input->post('updateBugDueDate');
-
-            if($this->bug_model->updateBug($bBugId,$bProjectId, $bDescription, $bassignedTo,
-                $bSeverity,$bStatus,$bDueDate)){
-                $bugs['message'] = 'You successfully updated this bug ';
-            }else{
-                $bugs['message'] = 'Bugg updated failed';
-            }
+       
+        $container = array();
+        $bBugId = $this->input->post('updateBugId');
+        $bProjectId = $this->input->post('updateBugProjectId');
+        $bDescription = $this->input->post('updateBugDescription');
+        $bassignedTo = $this->input->post('updateBugOwner');
+        $bSeverity = $this->input->post('updateBugSeverity');
+        $bStatus = $this->input->post('updateBugStatus');
+        $bDueDate = $this->input->post('updateBugDueDate');
+         
+        if($this->bug_model->updateBug( $bBugId,$bProjectId, $bDescription, $bassignedTo,
+            $bSeverity,$bStatus,$bDueDate)){
+            $container['message'] = 'You successfully added this bug ';
+        }else{
+            $container['message'] = 'Bugg  add failed';
         }
 
-        $bugs['bugindex'] = $this->bug_model->get();
-
-        // $data['page'] = 'userview3';
-        //   $this->load->view('template',$data);
-        /* $this->load->view('userview1',$users);*/
-        $this->load->view('project_mgnt/top_page.php');
-        $this->load->view('project_mgnt/menu_page.php');
-
-        $this->load->view('project_mgnt/bug_mgnt',$bugs);
+      //  $this->load->view('project_mgnt/bug_mgnt', $container);
+        $this->index();
     }
 
 }

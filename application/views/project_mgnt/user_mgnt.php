@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/project_mgnt.css">
 
     <title>User Management</title>
 
@@ -28,10 +28,10 @@
 
             <th>user_id</th>
             <th>username</th>
-            <th style="display: none">project_id</th>
+            <th>project_id</th>
             <th>first_name</th>
             <th>last_name</th>
-            <th>register_date</th>
+            <th>salt</th>
 
 
         </tr>
@@ -54,7 +54,7 @@
                     <?php echo $users -> last_name;?>
                 </td>
                 <td>
-                    <?php echo $users -> register_date;?>
+                    <?php echo $users -> salt;?>
                 </td>
                 
             </tr>
@@ -70,17 +70,18 @@
 
 
         <button type="button" class="btn btn-default btn-lg"
-                onclick="location.href='<?php echo site_url('index.php/user/data_in');?>'">
+                onclick="location.href='<?php echo site_url('index.php/project/data_in');?>'">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
-       
+        <script>
+            function onInsertStory()
+            {
+                <?php echo base_url('index.php/story/data_in'); ?>
+            }
+        </script>
         <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
-    </div>
-
-    <div>
-        <p align="center" style="color:red;"><?php if(isset($message)){echo $message;}?></p>
     </div>
 
 </div>

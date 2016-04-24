@@ -82,6 +82,13 @@ class Project_model  extends CI_Model
         return isset($idArray['project_id'])?$idArray['project_id']:$idArray;
     }
 
+    public function getProjectById($bugId)
+    {
 
+        //$this->db->select('user_id, username, password')->from('user');
+        $this->db->where('project_id', $bugId)->from('project');
+        return $this->db->get()->result();
+    }
+    
     
 }

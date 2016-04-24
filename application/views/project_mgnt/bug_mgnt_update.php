@@ -33,33 +33,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Id:</label>
             <div class="col-sm-10">
-                <input class="form-control col-sm-2" for="text" id="updateBugIdShow" name="updateBugIdShow" value="<?php echo $bugindex[0]->bug_id; ?>" disabled>
-                <input class="form-control col-sm-2" for="text" id="updateBugId" name="updateBugId" value="<?php echo $bugindex[0]->bug_id; ?>" style="display: none">
+			 <input class="form-control col-sm-2" for="text" id="updateBugId" name="updateBugId" value=<?php echo $bugindex[0]->bug_id; ?> disabled>           
             </div>
         </div>
 		
 		
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Project Id:</label>
+            <label class="control-label col-sm-2" for="text">Story Name:</label>
             <div class="col-sm-10">
             
                 <select class="form-control" id="updateBugProjectId" name="updateBugProjectId" placeholder="Enter Bug owner">
-				     <option value="<?php echo $bugindex[0]->project_id ?>"><?php echo $bugindex[0]->project_id; ?></option>
+				     <option value="<?php echo $bugindex[0]->story_id ?>"><?php echo $bugindex[0]->story_id; ?></option>
                     <?php
                      // Iterating through the product array
                     foreach($projectindex as $row){
                         ?>
-                        <option value="<?php echo $row->project_id ?>"><?php echo $row->project_name; ?></option>
+                        <option value="<?php echo $row->story_id ?>"><?php echo $row->story_description; ?></option>
                         <?php
                     }
                     ?>
                 </select>
             </div>
-        </div>
+        </div>  
         <div class="form-group">
             <label class="control-label col-sm-2" for="text">Bug Description:</label>
             <div class="col-sm-10">
-                <textarea style="resize: none;" type="text" class="form-control" id="updateBugDescription" name="updateBugDescription" value=""><?php echo $bugindex[0]->bug_description; ?></textarea>
+                <textarea style="resize: none;" type="text" maxlength="512" class="form-control" id="updateBugDescription" name="updateBugDescription" value=""><?php echo $bugindex[0]->bug_description; ?></textarea>
             </div>
         </div>
 

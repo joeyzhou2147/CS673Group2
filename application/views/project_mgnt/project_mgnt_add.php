@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	   <div class="form-group">
          <label class="control-label col-sm-2" for="text">Project Name:</label>
          <div class="col-sm-10">
-           <input type="text" class="form-control" id="addProjectName" name="addProjectName" placeholder="Enter Project Name">
+           <input type="text" class="form-control" id="addProjectName" name="addProjectName" placeholder="Enter Project Name: (100 chars Max)" maxlength = "100" size="512">
          </div>
        </div>
 	   
@@ -51,9 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        </div>
 	   
 	   <div class="form-group">
-         <label class="control-label col-sm-2" for="text">Project Length:</label>
+         <label class="control-label col-sm-2" for="text">Project Length (Days) :</label>
          <div class="col-sm-10">
-           <input type="number" class="form-control" id="addProjectLength" name="addProjectLength" placeholder="Enter Project Length">
+           <input type="number" class="form-control" id="addProjectLength" name="addProjectLength" placeholder="Enter Project Length" min="1" max="365">
          </div>
        </div>
 
