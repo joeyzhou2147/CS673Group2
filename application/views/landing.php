@@ -31,17 +31,17 @@
 
     <!-- owl carousel css -->
 
-    <link href="assets/stylesheets/owl.carousel.css" rel="stylesheet">
-    <link href="assets/stylesheets/owl.theme.css" rel="stylesheet">
+    <link href="<?php echo base_url("assets/stylesheets/owl.carousel.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/stylesheets/owl.theme.css"); ?>" rel="stylesheet">
 
     <!-- CSS Animations -->
-    <link href="assets/stylesheets/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url("assets/stylesheets/animate.css"); ?>" rel="stylesheet">
 
     <!-- Favicon -->
 
 
     <!-- Mordernizr -->
-    <script src="assets/javascripts/modernizr-2.6.2.min.js"></script>
+    <script src="<?php echo base_url("assets/javascripts/modernizr-2.6.2.min.js"); ?>"></script>
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
