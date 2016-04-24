@@ -71,7 +71,7 @@
             onclick="location.href='<?php echo site_url('index.php/story/data_in');?>'">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-default btn-lg">
+    <button type="button" class="btn btn-default btn-lg" style="display: none">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
   </div>

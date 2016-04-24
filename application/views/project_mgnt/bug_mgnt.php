@@ -164,7 +164,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 onclick="location.href='/cs673group2/index.php/bug/add_bug'">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
-        <button type="button" class="btn btn-default btn-lg">
+        <button type="button" class="btn btn-default btn-lg" style="display: none">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
     </div>

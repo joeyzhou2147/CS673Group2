@@ -79,7 +79,7 @@
                 <?php echo base_url('index.php/story/data_in'); ?>
             }
         </script>
-        <button type="button" class="btn btn-default btn-lg">
+        <button type="button" class="btn btn-default btn-lg" style="display: none">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
     </div>
