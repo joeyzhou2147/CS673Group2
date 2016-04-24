@@ -1,6 +1,8 @@
 <html>
 <head>
   <title> Chat Exmaples! </title>
+
+	
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <script>

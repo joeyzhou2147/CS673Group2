@@ -16,10 +16,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/custom.css"); ?>">
 
     <title>Bug Management</title>
+	<script src="/CS673Group2/assets/javascripts/sorttable.js"></script>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
  <script type="text/javascript" language="JavaScript">
+     window.onload = function(){
+
+       var myTH = document.getElementsByTagName("th")[0];
+     sorttable.innerSortFunction.apply(myTH, []);
+         alert("loded");
+         // code here
+     };
           var xmlhttp;
           function getdateDiff(dbDate)
 		  {
@@ -83,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container">
     <h2>Bug Lists</h2>
     <p>All of your bugs are here and you can add or subtract the lists</p>
-    <table class="table table-hover">
+    <table class="sortable" id="BugTable">
         <thead>
         <tr>
 
