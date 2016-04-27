@@ -210,12 +210,12 @@
 					<div class="col-md-4">
 					      <div class="reference-item" data-category="webdesign">
                             <div class="reference">
-                                <a href="#">
+                                <a href="<?php echo base_url("index.php/welcome/stats"); ?>">
 
-                                    <img src="<?php echo base_url("assets/images/portfolio-5.jpg"); ?>"  class="img-responsive" alt="" />
+                                    <img src="<?php echo base_url("assets/images/statistics.jpg"); ?>"  class="img-responsive" alt="" />
                                     <div class="overlay">
-                                        <h3 class="reference-title">Project name</h3> 
-                                        <p>Short project description goes here...</p>
+                                        <h3 class="reference-title">Statistics</h3> 
+                                        <p>Poject statistics page has closed and open projects information...</p>
                                     </div>
                                 </a>
 
@@ -243,12 +243,12 @@
 					<div class="col-md-4">
 							 <div class="reference-item" data-category="other">
                             <div class="reference">
-                                <a href="#">
-                                    <img src="<?php echo base_url("assets/images/portfolio-6.jpg"); ?>"  class="img-responsive" alt="" />
+                                <a href="<?php echo base_url("index.php/welcome/stats"); ?>">
+                                    <img src="<?php echo base_url("assets/images/help.jpg"); ?>"  class="img-responsive" alt="" />
 
                                     <div class="overlay">
-                                        <h3 class="reference-title">Project name</h3> 
-                                        <p>Short project description goes here...</p>
+                                        <h3 class="reference-title">Help section</h3> 
+                                        <p>The projects help pages shall go here ...</p>
                                     </div>
                                 </a>
 

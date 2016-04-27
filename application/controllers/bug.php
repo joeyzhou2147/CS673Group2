@@ -88,7 +88,22 @@ class Bug extends CI_Controller {
         $this->load->view('project_mgnt/bug_mgnt_add', $container);
     }
 
-    
+    public function detailview()
+    {
+
+        if($this->input->get('bugID')) {
+            $container['bugindex'] = $this->bug_model->getBugByBugId($this->input->get('bugID'));
+
+        }
+        else
+        {
+            $container['bugindex'] = $this->bug_model->getBugByBugId('5');
+        }
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        $this->load->view('project_mgnt/bug_mgnt_detailview', $container);
+
+    }
 	public function data_in_update()
 	{
 		 

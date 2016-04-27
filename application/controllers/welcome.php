@@ -115,6 +115,12 @@ class Welcome extends CI_Controller {
 
         // print_r($activity[story]);
     }
+    function stats()
+    {
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+        
+    }
 }
 
 /* End of file welcome.php */
