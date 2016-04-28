@@ -62,13 +62,16 @@
   </script>
 </head>
 <body>
+<center>
   <h1> Group Chat window </h1>
-  
+
   <textarea id="received" rows="10" cols="50">
   </textarea>
+
   <form>
     <input id="text" type="text" name="user">
     <input type="submit" value="Send">
   </form>
+ </center>
 </body>
 </html>
