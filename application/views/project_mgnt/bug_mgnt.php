@@ -29,6 +29,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             // code here
         };
         var xmlhttp;
+
+        function showBugByBugId(bugID) {
+            url = "/cs673group2/index.php/bug/detailview" + bugID;
+            xmlhttp = null;
+            if (window.XMLHttpRequest) {// code for IE7, Firefox, Mozilla, etc.
+                xmlhttp = new XMLHttpRequest();
+            }
+            else if (window.ActiveXObject) {// code for IE5, IE6
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            if (xmlhttp != null) {
+                window.location.href = "/cs673group2/index.php/bug/detailview?bugID=" + bugID;
+                xmlhttp.onreadystatechange = onResponse(projectId);
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send(null);
+            }
+            else {
+                alert("Your browser does not support XMLHTTP.");
+            }
+        }
+
         function getdateDiff(dbDate) {
             var date1 = new Date();
 
@@ -104,6 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th>Severity</th>
             <th>Status</th>
             <th>Due Date</th>
+            <th>Found Date</th>
             <th>Days open</th>
             <th>update</th>
 
@@ -115,31 +137,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         foreach ($bugindex as $bugs) {
             ?>
             <tr>
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->story_description; ?>
                 </td>
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->project_name; ?>
                 </td>
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->bug_description; ?>
                 </td>
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->bug_assigned_to; ?>
                 </td>
 
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->bug_severity; ?>
                 </td>
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->bug_status; ?>
                 </td>
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <?php echo $bugs->bug_due_date; ?>
                 </td>
 
-
-                <td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
+                    <?php echo $bugs->bug_found_date; ?>
+                </td>
+                <td onclick="showBugByBugId('<?php echo $bugs->bug_id; ?>')" style="cursor: pointer;">
                     <SCRIPT type="text/javascript">{
                             {
                                 getdateDiff('<?php echo $bugs->bug_found_date ;?>');
