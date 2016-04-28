@@ -152,11 +152,14 @@ class Bug extends CI_Controller
         ) {
             $container['message'] = 'You successfully updated this bug ';
         } else {
-            $container['message'] = 'Bug update failed';
+            $container['message'] = 'Bug update failed, please contact the manager!';
         }
+        $container['bugindex'] = $this->bug_model->get_by_story_id($bStoryId);
 
-        //  $this->load->view('project_mgnt/bug_mgnt', $container);
-        $this->index();
+        $this->load->view('project_mgnt/top_page.php');
+        $this->load->view('project_mgnt/menu_page.php');
+
+        $this->load->view('project_mgnt/bug_mgnt', $container);
     }
 
 }

@@ -35,13 +35,6 @@
             }
         }
 
-        function onResponse(storyId) {
-            if (xmlhttp.readyState != 4) return;
-            if (xmlhttp.status != 200) {
-                alert("Problem retrieving XML data");
-                return;
-            }
-        }
         function storyUpdate(storyId) {
             url = "/cs673group2/index.php/story/updateStoryDataIn" + storyId;
             xmlhttp = null;
@@ -53,12 +46,19 @@
             }
             if (xmlhttp != null) {
                 window.location.href = "/cs673group2/index.php/story/updateStoryDataIn?storyId=" + storyId;
-                xmlhttp.onreadystatechange = onResponse(projectId);
+                xmlhttp.onreadystatechange = onResponse(storyId);
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send(null);
             }
             else {
                 alert("Your browser does not support XMLHTTP.");
+            }
+        }
+        function onResponse(storyId) {
+            if (xmlhttp.readyState != 4) return;
+            if (xmlhttp.status != 200) {
+                alert("Problem retrieving XML data");
+                return;
             }
         }
     </script>

@@ -1,22 +1,23 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Story extends CI_Controller {
+class Story extends CI_Controller
+{
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+    /**
+     * Index Page for this controller.
+     *
+     * Maps to the following URL
+     *        http://example.com/index.php/welcome
+     *    - or -
+     *        http://example.com/index.php/welcome/index
+     *    - or -
+     * Since this controller is set as the default controller in
+     * config/routes.php, it's displayed at http://example.com/
+     *
+     * So any other public methods not prefixed with an underscore will
+     * map to /index.php/welcome/<method_name>
+     * @see http://codeigniter.com/user_guide/general/urls.html
+     */
     public function __construct()
     {
         parent::__construct();
@@ -31,26 +32,28 @@ class Story extends CI_Controller {
         $this->load->model('story_model');
         $this->load->model('project_model');
     }
+
     public function index()
     {
-        if($this->input->get('projectId')){
+        if ($this->input->get('projectId')) {
             $stories['storyindex'] = $this->story_model->get_by_project_id($this->input->get('projectId'));
-        }else{
+        } else {
             $stories['storyindex'] = $this->story_model->get();
         }
 
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page_story.php');
 
-        $this->load->view('project_mgnt/story_mgnt',$stories);
+        $this->load->view('project_mgnt/story_mgnt', $stories);
     }
+
     public function delete()
     {
-        if($this->input->get('storyId')){
-            if($this->story_model->delete_by_story_id($this->input->get('storyId'))){
-                $stories['message'] = 'Successfully delete story "'.$this->input->get('storyId').'".';
-            }else{
-                $stories['message'] = 'Delete story "'.$this->input->get('storyId').'" failed.';
+        if ($this->input->get('storyId')) {
+            if ($this->story_model->delete_by_story_id($this->input->get('storyId'))) {
+                $stories['message'] = 'Successfully delete story "' . $this->input->get('storyId') . '".';
+            } else {
+                $stories['message'] = 'Delete story "' . $this->input->get('storyId') . '" failed.';
             }
         }
         $stories['storyindex'] = $this->story_model->get();
@@ -58,29 +61,29 @@ class Story extends CI_Controller {
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/story_mgnt',$stories);
+        $this->load->view('project_mgnt/story_mgnt', $stories);
     }
 
     public function data_in()
     {
         //get the last story id
-       // $storyid = $this->story_model->get_last_story_id();
-       // $data['storyid'] = '3005';
+        // $storyid = $this->story_model->get_last_story_id();
+        // $data['storyid'] = '3005';
         //get all the project ids
         //$project['projectindex']= $this->project_model->get_all_project_id();
-         $data['projectindex'] = $this->project_model->get();
+        $data['projectindex'] = $this->project_model->get();
         //getall user names from user table
-        $data['owners'] = array('kali','gilbert','terry','han','joe');
+        $data['owners'] = array('kali', 'gilbert', 'terry', 'han', 'joe');
         // $data['page'] = 'project_mgnt_add_story';
 
-        $data['status']  = array('pending','open','completed');
-         //$this->load->view('template', $data);
+        $data['status'] = array('pending', 'open', 'completed');
+        //$this->load->view('template', $data);
 
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
         $this->load->view('project_mgnt/project_mgnt_add_story.php', $data);
 
-       // $this->load->view('add_story', $data);
+        // $this->load->view('add_story', $data);
     }
     
     public function add_story()
@@ -89,22 +92,23 @@ class Story extends CI_Controller {
         $container = array();
 
         $sProjectID = $this->input->post('addProjectId');
-        $sCreateDate =  date("m.d.y");   // 03.10.01
+        $sCreateDate = date("m.d.y");   // 03.10.01
         $sDescription = $this->input->post('addStoryDescription');
         $sUpdateDate = date("m.d.y");  // 03.10.01
         $StoryUser = $this->input->post('addStoryUser');
-        $StoryStatus =$this->input->post('addStoryStatus');
+        $StoryStatus = $this->input->post('addStoryStatus');
 
-        if($this->story_model->addStory($sProjectID, $sCreateDate, $sDescription,$sUpdateDate,
-            $StoryUser,$StoryStatus))
-        {
+        if ($this->story_model->addStory($sProjectID, $sCreateDate, $sDescription, $sUpdateDate,
+            $StoryUser, $StoryStatus)
+        ) {
             $container['message'] = 'You successfully add this Story ';
-        }else{
+        } else {
             $container['message'] = 'Story add failed';
         }
 
         $this->index();
     }
+
     public function project_mgnt()
     {
         $stories = $this->story_model->get();
@@ -112,10 +116,10 @@ class Story extends CI_Controller {
 
         //get story count
         $story_count = 0;
-        foreach($stories as $row){
-            $story_count ++;
+        foreach ($stories as $row) {
+            $story_count++;
         }
-        $story_count ++;
+        $story_count++;
         //echo phpinfo(); dieout();
         //echo $this->data['stories']->story_id;
         /*        foreach($stories as $story){
@@ -126,25 +130,26 @@ class Story extends CI_Controller {
 
         // summary of data post to view
 
-        $container  = array();
+        $container = array();
         $container['story_count'] = $story_count;
         $container['dataStories'] = $stories;
         $container['project_ids'] = $this->project_model->get_project_column('project_id');
 
-        $this->load->view('project_mgnt/project_mgnt_add_story',$container);
+        $this->load->view('project_mgnt/project_mgnt_add_story', $container);
     }
 
 
     function updateStoryDataIn()
     {
-        if($this->input->get('storyId')){
+        if ($this->input->get('storyId')) {
             $stories['storyindex'] = $this->story_model->get_by_story_id($this->input->get('storyId'));
+            $stories['projectindex'] = $this->project_model->get();
 
             $this->load->view('project_mgnt/top_page.php');
             $this->load->view('project_mgnt/menu_page_story.php');
 
-            $this->load->view('project_mgnt/story_mgnt_update',$stories);
-        }else{
+            $this->load->view('project_mgnt/story_mgnt_update', $stories);
+        } else {
             // goes to project since no id of project or story
             $this->load->view('project');
         }
@@ -152,35 +157,34 @@ class Story extends CI_Controller {
 
     function updateStoryData()
     {
-        $bProjectId = $this->input->get('updateProjectId');
-        $pName = $this->input->get('updateProjectName');
-        $pGroupId = $this->input->get('updateProjectGroupId');
-        $pLength = $this->input->get('updateProjectLength');
-        $pStartDate = $this->input->get('updateProjectStartDate');
-        $pEndDate = $this->input->get('updateProjectEndtDate');
-        $pStatus = $this->input->get('updateProjectStatus');
+        $updateStoryId = $this->input->post('updateStoryId');
+        $updateStoryProjectId = $this->input->post('updateStoryProjectId');
+        $updateStoryDescription = $this->input->post('updateStoryDescription');
+        $updateStoryOwner = $this->input->post('updateStoryOwner');
+        $updateStoryStatus = $this->input->post('updateStoryStatus');
+        $updateStoryDueDate = $this->input->post('updateStoryDueDate');
+
 
         //debug
         //echo phpinfo();dieout();
-        if ($this->project_model->updateProject($bProjectId, $pName, $pGroupId, $pLength, $pStartDate, $pStatus, $pEndDate)) {
-            //$container['message'] = "Update successfully!";
+        if ($this->story_model->updateStory($updateStoryId, $updateStoryProjectId, $updateStoryDescription, $updateStoryOwner, $updateStoryStatus, $updateStoryDueDate)) {
+            $container['message'] = "Update successfully!";
 
-            $container['projectindex'] = $this->project_model->get();
+            $container['storyindex'] = $this->story_model->get_by_project_id($updateStoryProjectId);
+
             $this->load->view('project_mgnt/top_page.php');
-            $this->load->view('project_mgnt/menu_page.php');
+            $this->load->view('project_mgnt/menu_page_story.php');
 
-            $this->load->view('project_mgnt/project_mgnt', $container);
+            $this->load->view('project_mgnt/story_mgnt', $container);
         } else {
-            $container['groupindex'] = $this->group_model->get();
+            $container['message'] = "Update failed, please contact the manager!";
 
-            $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
-            //$container['message'] = "Update failed, please contact the manager!";
+            $container['storyindex'] = $this->story_model->get_by_project_id($updateStoryProjectId);
 
-            $container['projectindex'] = $this->project_model->get();
             $this->load->view('project_mgnt/top_page.php');
-            $this->load->view('project_mgnt/menu_page.php');
+            $this->load->view('project_mgnt/menu_page_story.php');
 
-            $this->load->view('project_mgnt/project_mgnt', $container);
+            $this->load->view('project_mgnt/story_mgnt', $container);
 
         }
     }

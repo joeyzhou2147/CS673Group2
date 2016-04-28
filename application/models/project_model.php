@@ -91,7 +91,7 @@ class Project_model  extends CI_Model
         );
         //alert($bBugId);
         $this->db->where('project_id', $bProjectId);
-        $this->db->update('project', $dataArray);
+        return $this->db->update('project', $dataArray);
 
     }
 

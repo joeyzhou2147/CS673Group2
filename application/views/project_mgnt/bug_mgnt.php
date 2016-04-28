@@ -195,5 +195,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         </button>
     </div>
+    <div>
+        <p align="center" style="color:red;"><?php if (isset($message)) {
+                echo $message;
+            } ?></p>
+    </div>
 
 </div>

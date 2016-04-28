@@ -98,7 +98,7 @@ class Bug_model extends CI_Model
         );
         //alert($bBugId);
         $this->db->where('bug_id', $bBugId);
-        $this->db->update('bug', $dataArray);
+        return $this->db->update('bug', $dataArray);
 
     }
     public function updateLastLoginTime($email)

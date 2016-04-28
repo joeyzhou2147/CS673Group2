@@ -204,7 +204,7 @@ class Project extends CI_Controller
         //debug
         //echo phpinfo();dieout();
         if ($this->project_model->updateProject($bProjectId, $pName, $pGroupId, $pLength, $pStartDate, $pStatus, $pEndDate)) {
-            //$container['message'] = "Update successfully!";
+            $container['message'] = "Update successfully!";
 
             $container['projectindex'] = $this->project_model->get();
             $this->load->view('project_mgnt/top_page.php');
@@ -215,7 +215,7 @@ class Project extends CI_Controller
             $container['groupindex'] = $this->group_model->get();
 
             $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
-            //$container['message'] = "Update failed, please contact the manager!";
+            $container['message'] = "Update failed, please contact the manager!";
 
             $container['projectindex'] = $this->project_model->get();
             $this->load->view('project_mgnt/top_page.php');
