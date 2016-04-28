@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //document.write(dbDate);
 
         }
-        function updateBug(bugId, storyId) {
+        function updateBug(bugId) {
             url = "/cs673group2/index.php/bug/data_in_update" + bugId;
             xmlhttp = null;
             if (window.XMLHttpRequest) {// code for IE7, Firefox, Mozilla, etc.
@@ -61,7 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             if (xmlhttp != null) {
-                window.location.href = "/cs673group2/index.php/bug/data_in_update?bugId=" + bugId + "&storyId=" + storyId;
+                //window.location.href = "/cs673group2/index.php/bug/data_in_update?bugId=" + bugId + "&storyId=" + storyId;
+                window.location.href = "/cs673group2/index.php/bug/data_in_update?bugId=" + bugId;
                 xmlhttp.onreadystatechange = onResponse(bugId);
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send(null);
