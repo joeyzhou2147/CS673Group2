@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url("assets/stylesheets/bootstrap.min.css"); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/stylesheets/project_mgnt.css"); ?>">
 
-    <title>Bug Update</title>
+    <title>Story Update</title>
 
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
@@ -26,15 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div class="container">
-    <h2>Update Bug Entry</h2>
-    <form class="form-horizontal" role="form" action="/cs673group2/index.php/bug/updateBugData" method="post">
+    <h2>Update Story Entry</h2>
+    <form class="form-horizontal" role="form" action="/cs673group2/index.php/story/updateStoryData" method="post">
 	
 	
          <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Bug Id:</label>
+            <label class="control-label col-sm-2" for="text">Story Id:</label>
             <div class="col-sm-10">
-                <input class="form-control col-sm-2" for="text" value=<?php echo $bugindex[0]->bug_id; ?> disabled>
-                <input class="form-control col-sm-2" style="display:none;" for="text" id="updateBugId" name="updateBugId" value=<?php echo $bugindex[0]->bug_id; ?>>
+			 <input class="form-control col-sm-2" for="text" id="updateStoryId" name="updateStoryId" value=<?php echo $storyindex[0]->story_id; ?> disabled>
             </div>
         </div>
 		
@@ -43,13 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <label class="control-label col-sm-2" for="text">Story Name:</label>
             <div class="col-sm-10">
             
-                <select class="form-control" id="updateBugStoryId" name="updateBugStoryId" placeholder="Enter Bug owner">
+                <select class="form-control" id="updateStoryProjectId" name="updateStoryProjectId" placeholder="Enter Story owner">
+				     <option value="<?php echo $storyindex[0]->project_id ?>"><?php echo $storyindex[0]->project_id; ?></option>
                     <?php
                      // Iterating through the product array
-                    foreach($storyindex as $story){
+                    foreach($storyindex as $row){
                         ?>
-                        <option value="<?php echo $story->story_id ?>" <?php if($story->story_id==$bugindex[0]->story_id){echo ' selected="selected" '; }?>>
-                            <?php echo $story->story_description; ?></option>
+                        <option value="<?php echo $row->story_id ?>"><?php echo $row->story_description; ?></option>
                         <?php
                     }
                     ?>
@@ -57,14 +56,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>  
         <div class="form-group">
-            <label class="control-label col-sm-2" for="text">Bug Description:</label>
+            <label class="control-label col-sm-2" for="text">Story Description:</label>
             <div class="col-sm-10">
-                <textarea style="resize: none;" type="text" maxlength="512" class="form-control" id="updateBugDescription" name="updateBugDescription" value=""><?php echo $bugindex[0]->bug_description; ?></textarea>
+                <textarea style="resize: none;" type="text" maxlength="512" class="form-control" id="updateStoryDescription" name="updateStoryDescription" value=""><?php echo $storyindex[0]->story_description; ?></textarea>
             </div>
         </div>
 
           <div class="form-group">
-                <label class="control-label col-sm-2" for="text">Bug Assigned to:</label>
+                <label class="control-label col-sm-2" for="text">Story Assigned to:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="updateBugOwner" name="updateBugOwner" placeholder="Enter Bug owner">
 					    <option value="<?php echo $bugindex[0]->bug_assigned_to ?>"><?php echo $bugindex[0]->bug_assigned_to; ?></option>

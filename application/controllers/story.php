@@ -134,6 +134,56 @@ class Story extends CI_Controller {
         $this->load->view('project_mgnt/project_mgnt_add_story',$container);
     }
 
+
+    function updateStoryDataIn()
+    {
+        if($this->input->get('storyId')){
+            $stories['storyindex'] = $this->story_model->get_by_story_id($this->input->get('storyId'));
+
+            $this->load->view('project_mgnt/top_page.php');
+            $this->load->view('project_mgnt/menu_page_story.php');
+
+            $this->load->view('project_mgnt/story_mgnt_update',$stories);
+        }else{
+            // goes to project since no id of project or story
+            $this->load->view('project');
+        }
+    }
+
+    function updateStoryData()
+    {
+        $bProjectId = $this->input->get('updateProjectId');
+        $pName = $this->input->get('updateProjectName');
+        $pGroupId = $this->input->get('updateProjectGroupId');
+        $pLength = $this->input->get('updateProjectLength');
+        $pStartDate = $this->input->get('updateProjectStartDate');
+        $pEndDate = $this->input->get('updateProjectEndtDate');
+        $pStatus = $this->input->get('updateProjectStatus');
+
+        //debug
+        //echo phpinfo();dieout();
+        if ($this->project_model->updateProject($bProjectId, $pName, $pGroupId, $pLength, $pStartDate, $pStatus, $pEndDate)) {
+            //$container['message'] = "Update successfully!";
+
+            $container['projectindex'] = $this->project_model->get();
+            $this->load->view('project_mgnt/top_page.php');
+            $this->load->view('project_mgnt/menu_page.php');
+
+            $this->load->view('project_mgnt/project_mgnt', $container);
+        } else {
+            $container['groupindex'] = $this->group_model->get();
+
+            $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
+            //$container['message'] = "Update failed, please contact the manager!";
+
+            $container['projectindex'] = $this->project_model->get();
+            $this->load->view('project_mgnt/top_page.php');
+            $this->load->view('project_mgnt/menu_page.php');
+
+            $this->load->view('project_mgnt/project_mgnt', $container);
+
+        }
+    }
 }
 
 /* End of file welcome.php */

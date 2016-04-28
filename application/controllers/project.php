@@ -37,7 +37,7 @@ class Project extends CI_Controller
     function index()
     {
 
-        $projects['projectindex'] = $this->project_model->get();
+        $container['projectindex'] = $this->project_model->get();
 
         // $data['page'] = 'userview3';
         //   $this->load->view('template',$data);
@@ -45,7 +45,7 @@ class Project extends CI_Controller
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
 
-        $this->load->view('project_mgnt/project_mgnt', $projects);
+        $this->load->view('project_mgnt/project_mgnt', $container);
         //  $this->load->view('project_mgnt/bottom_page.php');
     }
 
@@ -92,11 +92,12 @@ class Project extends CI_Controller
             $container['message'] = 'Project "' . $pName . '" add failed';
         }
 
-        $this->index();
-        /*
+        // $this->index();
+        $container['projectindex'] = $this->project_model->get();
         $this->load->view('project_mgnt/top_page.php');
         $this->load->view('project_mgnt/menu_page.php');
-        $this->load->view('project_mgnt/project_mgnt_add', $container);*/
+
+        $this->load->view('project_mgnt/project_mgnt', $container);
     }
 
     function data_in_backup()
@@ -203,15 +204,24 @@ class Project extends CI_Controller
         //debug
         //echo phpinfo();dieout();
         if ($this->project_model->updateProject($bProjectId, $pName, $pGroupId, $pLength, $pStartDate, $pStatus, $pEndDate)) {
-            $container['message'] = "Update successfully!";
-            $this->index();
+            //$container['message'] = "Update successfully!";
+
+            $container['projectindex'] = $this->project_model->get();
+            $this->load->view('project_mgnt/top_page.php');
+            $this->load->view('project_mgnt/menu_page.php');
+
+            $this->load->view('project_mgnt/project_mgnt', $container);
         } else {
             $container['groupindex'] = $this->group_model->get();
 
             $container['projectindex'] = $this->project_model->getProjectById($this->input->get('projectId'));
-            $container['message'] = "Update failed, please contact the manager!";
+            //$container['message'] = "Update failed, please contact the manager!";
 
-            $this->index();
+            $container['projectindex'] = $this->project_model->get();
+            $this->load->view('project_mgnt/top_page.php');
+            $this->load->view('project_mgnt/menu_page.php');
+
+            $this->load->view('project_mgnt/project_mgnt', $container);
 
         }
     }

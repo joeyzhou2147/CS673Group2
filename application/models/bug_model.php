@@ -101,7 +101,6 @@ class Bug_model extends CI_Model
         $this->db->update('bug', $dataArray);
 
     }
-
     public function updateLastLoginTime($email)
     {
         if ($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -135,6 +134,17 @@ class Bug_model extends CI_Model
 
         //$this->db->select('user_id, username, password')->from('user');
         $this->db->where('bug_id', $bugId)->from('bug');
+        return $this->db->get()->result();
+    }
+
+
+    function get_by_story_id($story_id)
+    {
+        $this->db->select('*');
+        $this->db->from('bug');
+        $this->db->join('story', 'bug.story_id=story.story_id', 'inner');
+        $this->db->join('project', 'story.project_id = project.project_id', 'inner');
+        $this->db->where('bug.story_id', $story_id);
         return $this->db->get()->result();
     }
 
