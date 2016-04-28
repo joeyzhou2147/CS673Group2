@@ -52,7 +52,7 @@
 
 <div class = "container">
 
-      <div class="section" id="references">
+      <div class="section" id="references" style="margin-top: 40px;">
             <div class="container">
                 <div class="col-sm-12">
 
