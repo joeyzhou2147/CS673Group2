@@ -54,16 +54,17 @@ class Bug_model extends CI_Model
     }
 
 
-    function addProject($bProjectId, $bDescription, $bassignedTo,
-                        $bSeverity, $bStatus, $bDueDate)
+    function addBug($addBugStoryId, $addBugDescription, $addBugOwner,
+                    $addBugSeverity, $addBugStatus, $addBugDueDate)
     {
         $dataArray = array(
-            'story_id' => $bProjectId, // column id is auto incremental
-            'bug_description' => $bDescription,
-            'bug_assigned_to' => $bassignedTo,
-            'bug_severity' => $bSeverity,
-            'bug_status' => $bStatus,
-            'bug_due_date' => $bDueDate,
+            'story_id' => $addBugStoryId, // column id is auto incremental
+            'bug_description' => $addBugDescription,
+            'bug_assigned_to' => $addBugOwner,
+            'bug_severity' => $addBugSeverity,
+            'bug_status' => $addBugStatus,
+            'bug_due_date' => $addBugDueDate,
+            'bug_found_date' => date("Y-m-d"),
 
             //'register_date' => date("Y-m-d H:i:s"),
         );

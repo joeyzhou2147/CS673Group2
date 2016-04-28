@@ -64,15 +64,15 @@ class Bug extends CI_Controller
 
         $container = array();
 
-        $bProjectId = $this->input->post('addBugStoryId');
-        $bDescription = $this->input->post('addBugDescription');
-        $bassignedTo = $this->input->post('addBugOwner');
-        $bSeverity = $this->input->post('addBugSeverity');
-        $bStatus = $this->input->post('addBugStatus');
-        $bDueDate = $this->input->post('addBugDueDate');
+        $addBugStoryId = $this->input->post('addBugStoryId');
+        $addBugDescription = $this->input->post('addBugDescription');
+        $addBugOwner = $this->input->post('addBugOwner');
+        $addBugSeverity = $this->input->post('addBugSeverity');
+        $addBugStatus = $this->input->post('addBugStatus');
+        $addBugDueDate = $this->input->post('addBugDueDate');
 
-        if ($this->bug_model->addProject($bProjectId, $bDescription, $bassignedTo,
-            $bSeverity, $bStatus, $bDueDate)
+        if ($this->bug_model->addBug($addBugStoryId, $addBugDescription, $addBugOwner,
+            $addBugSeverity, $addBugStatus, $addBugDueDate)
         ) {
             $container['message'] = 'You successfully added this bug ';
         } else {
