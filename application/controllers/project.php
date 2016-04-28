@@ -87,7 +87,7 @@ class Project extends CI_Controller
         $pStatus = $this->input->post('addProjectStatus');
 
         if ($this->project_model->addProject($pName, $pGroupId, $pLength, $pStartDate, $pStatus)) {
-            $container['message'] = 'You successfully add this project "' . $pName . '"!';
+            $container['message'] = 'You successfully added this project "' . $pName . '"!';
         } else {
             $container['message'] = 'Project "' . $pName . '" add failed';
         }

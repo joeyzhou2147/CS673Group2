@@ -101,7 +101,7 @@ class Story extends CI_Controller
         if ($this->story_model->addStory($sProjectID, $sCreateDate, $sDescription, $sUpdateDate,
             $StoryUser, $StoryStatus)
         ) {
-            $container['message'] = 'You successfully add this Story ';
+            $container['message'] = 'You successfully added this Story ';
         } else {
             $container['message'] = 'Story add failed';
         }
